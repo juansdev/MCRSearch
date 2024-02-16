@@ -16,6 +16,10 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
         {
             return await _context.AvailableVehicles.ToListAsync();
         }
+        public async Task<List<AvailableVehicle>> GetAvailableVehicles(int pickUpCityId, int returnCityId)
+        {
+            return await _context.AvailableVehicles.Where(av=>av.PickUpCityId == pickUpCityId && av.ReturnCityId == returnCityId).ToListAsync();
+        }
 
         public async Task<AvailableVehicle?> GetAvailableVehicle(int id)
         {
@@ -26,10 +30,11 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
         {
             return await _context.AvailableVehicles
                 .Include(av => av.Vehicle)
-                .Include(av => av.City)
+                .Include(av => av.PickUpCity)
+                .Include(av => av.ReturnCity)
                 .FirstOrDefaultAsync(
                     av => av.VehicleId == vehicleId &&
-                          av.CityId == cityId
+                          av.PickUpCityId == cityId || av.ReturnCityId == cityId
                 );
         }
 
@@ -45,7 +50,17 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
 
         public async Task<List<AvailableVehicle>> GetAvailableVehiclesInCity(int cityId)
         {
-            return await _context.AvailableVehicles.Include(av => av.City).Where(c => c.CityId == cityId).ToListAsync();
+            return await _context.AvailableVehicles
+                .Include(av => av.ReturnCity)
+                .Include(av => av.PickUpCity)
+                .Where(c => c.PickUpCityId == cityId || c.ReturnCityId == cityId).ToListAsync();
+        }
+
+        public async Task<bool> IsEnabledMarket(int localizedCustomerCountryId, int pickUpCityId)
+        {
+            return await _context.AvailableVehicles
+                .Include(av => av.PickUpCity.Department)
+                .AnyAsync(av => av.PickUpCityId == pickUpCityId && av.PickUpCity.Department.CountryId == localizedCustomerCountryId);
         }
     }
 }

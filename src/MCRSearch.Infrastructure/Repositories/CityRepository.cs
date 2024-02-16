@@ -21,6 +21,11 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
             return await _context.Cities.FirstOrDefaultAsync(d => d.Id == id);
         }
 
+        public async Task<City?> GetCity(string name)
+        {
+            return await _context.Cities.FirstOrDefaultAsync(d => d.Name.ToLower().Trim() == name.ToLower().Trim());
+        }
+
         public async Task<bool> IsAvailable(int id)
         {
             return await _context.Cities.AnyAsync(d => d.Id == id);

@@ -1,4 +1,4 @@
-﻿namespace MCRSearch.src.MCRSearch.Core.Dtos
+﻿namespace MCRSearch.src.MCRSearch.Infrastructure.Dtos
 {
     public class AppUserDataDto
     {

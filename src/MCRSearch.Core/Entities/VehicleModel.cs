@@ -1,14 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MCRSearch.src.MCRSearch.Core.Entities.Commons;
+using System.ComponentModel.DataAnnotations;
 
 namespace MCRSearch.src.MCRSearch.Core.Entities
 {
-    public class VehicleModel
+    public class VehicleModel : BaseEntity
     {
-        [Key]
-        public int Id { get; set; }
         [Required]
-        public required string Name { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public string? Name { get; set; }
     }
 }

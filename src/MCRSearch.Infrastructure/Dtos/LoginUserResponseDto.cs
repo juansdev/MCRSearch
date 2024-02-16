@@ -1,8 +1,8 @@
-﻿namespace MCRSearch.src.MCRSearch.Core.Dtos
+﻿namespace MCRSearch.src.MCRSearch.Infrastructure.Dtos
 {
     public class LoginUserResponseDto
     {
-        public required RegisterUserDto User { get; set; }
+        public required AppUserDataDto User { get; set; }
         public required string Token { get; set; }
     }
 }

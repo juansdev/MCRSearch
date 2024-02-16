@@ -21,6 +21,11 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
             return await _context.Departments.FirstOrDefaultAsync(d => d.Id == id);
         }
 
+        public async Task<Department?> GetDepartment(string name)
+        {
+            return await _context.Departments.FirstOrDefaultAsync(d => d.Name.ToLower().Trim() == name.ToLower().Trim());
+        }
+
         public async Task<bool> IsAvailable(int id)
         {
             return await _context.Departments.AnyAsync(d => d.Id == id);

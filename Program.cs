@@ -1,4 +1,6 @@
 using MCRSearch.src.MCRSearch.Application.Mapper;
+using MCRSearch.src.MCRSearch.Application.Services;
+using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
 using MCRSearch.src.MCRSearch.Core.Entities;
 using MCRSearch.src.MCRSearch.Infrastructure;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories;
@@ -16,7 +18,7 @@ var key = builder.Configuration.GetValue<string>("ApiSettings:Secret");
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options => {
-    var connectionString = builder.Configuration.GetConnectionString("connectionSql");
+    var connectionString = builder.Configuration.GetConnectionString("ConnectionSql");
     if(connectionString != null) options.UseMySQL(connectionString);
 });
 builder.Services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
@@ -31,6 +33,8 @@ builder.Services.AddScoped<IVehicleModelRepository, VehicleModelRepository>();
 builder.Services.AddScoped<IVehicleTypeRepository, VehicleTypeRepository>();
 builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
 builder.Services.AddScoped<IAvailableVehicleRepository, AvailableVehicleRepository>();
+
+builder.Services.AddScoped<IAvailableVehicleService, AvailableVehicleService>();
 
 builder.Services.AddAutoMapper(typeof(MCRSearchMapper));
 builder.Services.AddAuthentication(x =>

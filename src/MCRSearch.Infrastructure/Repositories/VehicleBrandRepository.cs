@@ -21,6 +21,11 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
             return await _context.VehicleBrands.FirstOrDefaultAsync(vb => vb.Id == id);
         }
 
+        public async Task<VehicleBrand?> GetVehicleBrand(string name)
+        {
+            return await _context.VehicleBrands.FirstOrDefaultAsync(vb => vb.Name.ToLower().Trim() == name.ToLower().Trim());
+        }
+
         public async Task<bool> IsAvailable(int id)
         {
             return await _context.VehicleBrands.AnyAsync(vb => vb.Id == id);

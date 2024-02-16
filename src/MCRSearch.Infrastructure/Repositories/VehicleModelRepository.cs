@@ -21,6 +21,11 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
             return await _context.VehicleModels.FirstOrDefaultAsync(vm => vm.Id == id);
         }
 
+        public async Task<VehicleModel?> GetVehicleModel(string name)
+        {
+            return await _context.VehicleModels.FirstOrDefaultAsync(vm => vm.Name.ToLower().Trim() == name.ToLower().Trim());
+        }
+
         public async Task<bool> IsAvailable(int id)
         {
             return await _context.VehicleModels.AnyAsync(vm => vm.Id == id);

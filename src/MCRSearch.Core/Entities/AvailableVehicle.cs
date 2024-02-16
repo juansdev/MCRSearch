@@ -1,19 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MCRSearch.src.MCRSearch.Core.Entities.Commons;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MCRSearch.src.MCRSearch.Core.Entities
 {
-    public class AvailableVehicle
+    public class AvailableVehicle: BaseEntity
     {
-        [Key]
-        public int Id { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
         [ForeignKey("VehicleId")]
         public int VehicleId { get; set; }
-        public required Vehicle Vehicle { get; set; }
-        [ForeignKey("CityId")]
-        public int CityId { get; set; }
-        public required City City { get; set; }
+        public Vehicle? Vehicle { get; set; }
+        [ForeignKey("PickUpCityId")]
+        public int PickUpCityId { get; set; }
+        [ForeignKey("ReturnCityId")]
+        public int ReturnCityId { get; set; }
+        public City? ReturnCity { get; set; }
+        public City? PickUpCity { get; set; }
     }
 }

@@ -1,7 +1,5 @@
-﻿using MCRSearch.src.MCRSearch.Core.Dtos;
-using MCRSearch.src.MCRSearch.Core.Entities;
+﻿using MCRSearch.src.MCRSearch.Core.Entities;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces;
-using MCRSearch.src.MCRSearch.Presentation.Dtos;
 using Microsoft.AspNetCore.Identity;
 using AutoMapper;
 using System.Security.Claims;
@@ -10,6 +8,8 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using XSystem.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
+using MCRSearch.src.MCRSearch.Application.Dtos;
+using MCRSearch.src.MCRSearch.Infrastructure.Dtos;
 
 namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
 {
@@ -46,7 +46,7 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
         public async Task<LoginUserResponseDto> Login(LoginUserDto loginUserDto)
         {
             // var passwordEncrypt = getMd5(loginUserDto.Password);
-            var user = _context.AppUser.FirstOrDefault(u => u.UserName.ToLower() == loginUserDto.UserName.ToLower());
+            var user = await _context.AppUser.FirstOrDefaultAsync(u => u.UserName.ToLower() == loginUserDto.UserName.ToLower());
             bool isValid = await _userManager.CheckPasswordAsync(user, loginUserDto.Password);
             if (user == null || isValid == false)
             {
