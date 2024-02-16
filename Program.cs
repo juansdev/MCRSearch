@@ -34,6 +34,14 @@ builder.Services.AddScoped<IVehicleTypeRepository, VehicleTypeRepository>();
 builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
 builder.Services.AddScoped<IAvailableVehicleRepository, AvailableVehicleRepository>();
 
+builder.Services.AddScoped<IAppUserService, AppUserService>();
+builder.Services.AddScoped<ICountryService, CountryService>();
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+builder.Services.AddScoped<ICityService, CityService>();
+builder.Services.AddScoped<IVehicleBrandService, VehicleBrandService>();
+builder.Services.AddScoped<IVehicleModelService, VehicleModelService>();
+builder.Services.AddScoped<IVehicleTypeService, VehicleTypeService>();
+builder.Services.AddScoped<IVehicleService, VehicleService>();
 builder.Services.AddScoped<IAvailableVehicleService, AvailableVehicleService>();
 
 builder.Services.AddAutoMapper(typeof(MCRSearchMapper));

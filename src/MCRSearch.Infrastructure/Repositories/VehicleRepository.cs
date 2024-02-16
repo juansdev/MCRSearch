@@ -14,7 +14,11 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
         }
         public async Task<List<Vehicle>> GetVehicles()
         {
-            return await _context.Vehicles.ToListAsync();
+            return await _context.Vehicles
+                    .Include(v => v.VehicleModel)
+                    .Include(v => v.VehicleBrand)
+                    .Include(v => v.VehicleType)
+                    .ToListAsync();
         }
 
         public async Task<Vehicle?> GetVehicle(int id)

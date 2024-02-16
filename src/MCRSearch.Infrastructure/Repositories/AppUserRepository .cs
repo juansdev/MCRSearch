@@ -106,8 +106,11 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
                 {
                     await _roleManager.CreateAsync(new IdentityRole("admin"));
                     await _roleManager.CreateAsync(new IdentityRole("registered"));
+                    await _userManager.AddToRoleAsync(user, "admin");
+                } else
+                {
+                    await _userManager.AddToRoleAsync(user, "registered");
                 }
-                await _userManager.AddToRoleAsync(user, "registered");
                 var userReturned = _context.AppUser.FirstOrDefault(u => u.UserName == registerUserDto.UserName);
                 return _mapper.Map<AppUserDataDto>(userReturned);
             }

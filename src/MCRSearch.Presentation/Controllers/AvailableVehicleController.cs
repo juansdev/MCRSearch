@@ -31,5 +31,33 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
             }
             return NotFound();
         }
+        [AllowAnonymous]
+        [HttpGet("{vehicleId:int}", Name = "GetAvailableVehiclesInVehicle")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetAvailableVehiclesInVehicle(int vehicleId)
+        {
+            var listAvailableVehicles = _availableVehicleService.GetAvailableVehiclesInVehicle(vehicleId);
+            if (listAvailableVehicles.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(listAvailableVehicles);
+        }
+        [AllowAnonymous]
+        [HttpGet("city/{cityId:int}", Name = "GetAvailableVehiclesInCity")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetAvailableVehiclesInCity(int cityId)
+        {
+            var listAvailableVehicles = _availableVehicleService.GetAvailableVehiclesInCity(cityId);
+            if (listAvailableVehicles.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(listAvailableVehicles);
+        }
     }
 }
