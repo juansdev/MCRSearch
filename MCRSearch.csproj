@@ -7,14 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.16" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.14" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="src\MCRSearch.Application\Services\Interfaces\" />
     <Folder Include="src\MCRSearch.Core\Dtos\" />
-    <Folder Include="src\MCRSearch.Infrastructure\Repositories\Interfaces\" />
     <Folder Include="src\MCRSearch.Presentation\Controllers\" />
     <Folder Include="tests\MCRSearch.Tests\" />
   </ItemGroup>
