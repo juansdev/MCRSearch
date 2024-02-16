@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="src\MCRSearch.Application\Services\Interfaces\" />
-    <Folder Include="src\MCRSearch.Core\Entities\" />
     <Folder Include="src\MCRSearch.Core\Dtos\" />
     <Folder Include="src\MCRSearch.Infrastructure\Repositories\Interfaces\" />
     <Folder Include="src\MCRSearch.Presentation\Controllers\" />
