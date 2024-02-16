@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.14" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\MCRSearch.Application\Services\Interfaces\" />
+    <Folder Include="src\MCRSearch.Core\Entities\" />
+    <Folder Include="src\MCRSearch.Core\Dtos\" />
+    <Folder Include="src\MCRSearch.Infrastructure\Repositories\Interfaces\" />
+    <Folder Include="src\MCRSearch.Presentation\Controllers\" />
+    <Folder Include="tests\MCRSearch.Tests\" />
+  </ItemGroup>
+
+</Project>
