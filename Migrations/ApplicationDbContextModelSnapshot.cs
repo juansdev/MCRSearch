@@ -84,6 +84,24 @@ namespace MCRSearch.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "02174cf0–9412–4cfe-afbf-59f706d72cf6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "cc4d29b6-94ed-4b3e-b244-489b0195c17b",
+                            Email = "admin@admin.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            Name = "admin",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAIAAYagAAAAENCGropD1B8L4/Wp+2vGkZEkhTqtDGZJ1SP1GMoZ62bwaDFx33Kh3WNx7BzgIEVSWg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "578308c7-ca68-415b-a4c9-1e42a46f3830",
+                            TwoFactorEnabled = false,
+                            UserName = "admin"
+                        });
                 });
 
             modelBuilder.Entity("MCRSearch.src.MCRSearch.Core.Entities.AvailableVehicle", b =>
@@ -121,7 +139,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1746),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3469),
                             PickUpCityId = 1,
                             ReturnCityId = 1,
                             VehicleId = 1
@@ -129,7 +147,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1751),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3476),
                             PickUpCityId = 1,
                             ReturnCityId = 1,
                             VehicleId = 2
@@ -137,7 +155,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1752),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3477),
                             PickUpCityId = 1,
                             ReturnCityId = 1,
                             VehicleId = 3
@@ -145,15 +163,15 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1753),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3478),
                             PickUpCityId = 1,
                             ReturnCityId = 1,
-                            VehicleId = 4
+                            VehicleId = 2
                         },
                         new
                         {
                             Id = 5,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1753),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3479),
                             PickUpCityId = 1,
                             ReturnCityId = 1,
                             VehicleId = 5
@@ -161,7 +179,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 6,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1754),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3480),
                             PickUpCityId = 1,
                             ReturnCityId = 2,
                             VehicleId = 6
@@ -169,15 +187,15 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 7,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1755),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3481),
                             PickUpCityId = 1,
                             ReturnCityId = 2,
-                            VehicleId = 7
+                            VehicleId = 5
                         },
                         new
                         {
                             Id = 8,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1756),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3482),
                             PickUpCityId = 2,
                             ReturnCityId = 1,
                             VehicleId = 8
@@ -185,15 +203,15 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 9,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1757),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3482),
                             PickUpCityId = 3,
                             ReturnCityId = 3,
-                            VehicleId = 9
+                            VehicleId = 5
                         },
                         new
                         {
                             Id = 10,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1757),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3483),
                             PickUpCityId = 3,
                             ReturnCityId = 3,
                             VehicleId = 10
@@ -201,31 +219,31 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 11,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1758),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3484),
                             PickUpCityId = 3,
                             ReturnCityId = 3,
-                            VehicleId = 11
+                            VehicleId = 14
                         },
                         new
                         {
                             Id = 12,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1759),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3485),
                             PickUpCityId = 3,
+                            ReturnCityId = 3,
+                            VehicleId = 3
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3486),
+                            PickUpCityId = 4,
                             ReturnCityId = 3,
                             VehicleId = 12
                         },
                         new
                         {
-                            Id = 13,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1760),
-                            PickUpCityId = 4,
-                            ReturnCityId = 3,
-                            VehicleId = 13
-                        },
-                        new
-                        {
                             Id = 14,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1761),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3487),
                             PickUpCityId = 4,
                             ReturnCityId = 3,
                             VehicleId = 14
@@ -233,23 +251,23 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 15,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1762),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3488),
                             PickUpCityId = 4,
                             ReturnCityId = 3,
-                            VehicleId = 15
+                            VehicleId = 20
                         },
                         new
                         {
                             Id = 16,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1762),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3488),
                             PickUpCityId = 4,
                             ReturnCityId = 3,
-                            VehicleId = 16
+                            VehicleId = 1
                         },
                         new
                         {
                             Id = 17,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1763),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3517),
                             PickUpCityId = 2,
                             ReturnCityId = 2,
                             VehicleId = 17
@@ -257,15 +275,15 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 18,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1764),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3518),
                             PickUpCityId = 2,
                             ReturnCityId = 2,
-                            VehicleId = 18
+                            VehicleId = 14
                         },
                         new
                         {
                             Id = 19,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1765),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3519),
                             PickUpCityId = 2,
                             ReturnCityId = 2,
                             VehicleId = 19
@@ -273,7 +291,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 20,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1766),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3520),
                             PickUpCityId = 4,
                             ReturnCityId = 4,
                             VehicleId = 20
@@ -309,28 +327,28 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1581),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3232),
                             DepartmentId = 1,
                             Name = "Bogotá D.C."
                         },
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1583),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3236),
                             DepartmentId = 1,
                             Name = "Tunja"
                         },
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1584),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3237),
                             DepartmentId = 2,
                             Name = "Brasilia"
                         },
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1585),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3238),
                             DepartmentId = 2,
                             Name = "Goiânia"
                         });
@@ -360,13 +378,13 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1406),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3169),
                             Name = "Colombia"
                         },
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1419),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3189),
                             Name = "Brazil"
                         });
                 });
@@ -401,14 +419,14 @@ namespace MCRSearch.Migrations
                         {
                             Id = 1,
                             CountryId = 1,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1564),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3210),
                             Name = "Cundinamarca"
                         },
                         new
                         {
                             Id = 2,
                             CountryId = 2,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1568),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3213),
                             Name = "Goiás"
                         });
                 });
@@ -448,7 +466,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1712),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3430),
                             VehicleBrandId = 1,
                             VehicleModelId = 1,
                             VehicleTypeId = 1
@@ -456,7 +474,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1714),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3433),
                             VehicleBrandId = 2,
                             VehicleModelId = 2,
                             VehicleTypeId = 1
@@ -464,7 +482,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1717),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3434),
                             VehicleBrandId = 3,
                             VehicleModelId = 3,
                             VehicleTypeId = 2
@@ -472,7 +490,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1717),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3435),
                             VehicleBrandId = 4,
                             VehicleModelId = 4,
                             VehicleTypeId = 1
@@ -480,7 +498,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 5,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1718),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3435),
                             VehicleBrandId = 5,
                             VehicleModelId = 5,
                             VehicleTypeId = 3
@@ -488,7 +506,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 6,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1719),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3436),
                             VehicleBrandId = 6,
                             VehicleModelId = 6,
                             VehicleTypeId = 4
@@ -496,7 +514,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 7,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1720),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3437),
                             VehicleBrandId = 7,
                             VehicleModelId = 7,
                             VehicleTypeId = 1
@@ -504,7 +522,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 8,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1721),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3438),
                             VehicleBrandId = 8,
                             VehicleModelId = 8,
                             VehicleTypeId = 3
@@ -512,7 +530,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 9,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1722),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3439),
                             VehicleBrandId = 9,
                             VehicleModelId = 9,
                             VehicleTypeId = 1
@@ -520,7 +538,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 10,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1722),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3440),
                             VehicleBrandId = 10,
                             VehicleModelId = 10,
                             VehicleTypeId = 2
@@ -528,7 +546,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 11,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1724),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3442),
                             VehicleBrandId = 11,
                             VehicleModelId = 11,
                             VehicleTypeId = 2
@@ -536,7 +554,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 12,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1724),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3443),
                             VehicleBrandId = 12,
                             VehicleModelId = 12,
                             VehicleTypeId = 1
@@ -544,7 +562,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 13,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1725),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3444),
                             VehicleBrandId = 13,
                             VehicleModelId = 13,
                             VehicleTypeId = 2
@@ -552,7 +570,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 14,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1726),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3444),
                             VehicleBrandId = 14,
                             VehicleModelId = 14,
                             VehicleTypeId = 2
@@ -560,7 +578,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 15,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1727),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3445),
                             VehicleBrandId = 15,
                             VehicleModelId = 15,
                             VehicleTypeId = 3
@@ -568,7 +586,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 16,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1728),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3446),
                             VehicleBrandId = 16,
                             VehicleModelId = 16,
                             VehicleTypeId = 3
@@ -576,7 +594,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 17,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1728),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3447),
                             VehicleBrandId = 17,
                             VehicleModelId = 17,
                             VehicleTypeId = 3
@@ -584,7 +602,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 18,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1729),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3448),
                             VehicleBrandId = 18,
                             VehicleModelId = 18,
                             VehicleTypeId = 3
@@ -592,7 +610,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 19,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1730),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3449),
                             VehicleBrandId = 19,
                             VehicleModelId = 19,
                             VehicleTypeId = 3
@@ -600,7 +618,7 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 20,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1731),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3449),
                             VehicleBrandId = 20,
                             VehicleModelId = 20,
                             VehicleTypeId = 1
@@ -631,121 +649,121 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1599),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3256),
                             Name = "Toyota"
                         },
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1601),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3257),
                             Name = "Honda"
                         },
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1602),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3258),
                             Name = "Ford"
                         },
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1603),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3260),
                             Name = "Chevrolet"
                         },
                         new
                         {
                             Id = 5,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1604),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3260),
                             Name = "Nissan"
                         },
                         new
                         {
                             Id = 6,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1604),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3261),
                             Name = "Jeep"
                         },
                         new
                         {
                             Id = 7,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1605),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3262),
                             Name = "Volkswagen"
                         },
                         new
                         {
                             Id = 8,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1605),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3263),
                             Name = "BMW"
                         },
                         new
                         {
                             Id = 9,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1606),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3263),
                             Name = "Mercedes-Benz"
                         },
                         new
                         {
                             Id = 10,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1607),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3264),
                             Name = "Subaru"
                         },
                         new
                         {
                             Id = 11,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1607),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3265),
                             Name = "Ford"
                         },
                         new
                         {
                             Id = 12,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1608),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3265),
                             Name = "Tesla"
                         },
                         new
                         {
                             Id = 13,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1609),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3267),
                             Name = "GMC"
                         },
                         new
                         {
                             Id = 14,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1609),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3267),
                             Name = "Audi"
                         },
                         new
                         {
                             Id = 15,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1610),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3332),
                             Name = "Hyundai"
                         },
                         new
                         {
                             Id = 16,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1611),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3333),
                             Name = "Lexus"
                         },
                         new
                         {
                             Id = 17,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1611),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3334),
                             Name = "Kia"
                         },
                         new
                         {
                             Id = 18,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1613),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3335),
                             Name = "Jaguar"
                         },
                         new
                         {
                             Id = 19,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1613),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3336),
                             Name = "Land Rover"
                         },
                         new
                         {
                             Id = 20,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1614),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3336),
                             Name = "Ford"
                         });
                 });
@@ -774,121 +792,121 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1633),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3373),
                             Name = "Camry"
                         },
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1635),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3374),
                             Name = "Accord"
                         },
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1635),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3375),
                             Name = "Explorer"
                         },
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1636),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3376),
                             Name = "Malibu"
                         },
                         new
                         {
                             Id = 5,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1637),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3377),
                             Name = "Rogue"
                         },
                         new
                         {
                             Id = 6,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1638),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3378),
                             Name = "Wrangler"
                         },
                         new
                         {
                             Id = 7,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1638),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3379),
                             Name = "Golf"
                         },
                         new
                         {
                             Id = 8,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1639),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3380),
                             Name = "X5"
                         },
                         new
                         {
                             Id = 9,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1640),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3380),
                             Name = "C-Class"
                         },
                         new
                         {
                             Id = 10,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1640),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3381),
                             Name = "Outback"
                         },
                         new
                         {
                             Id = 11,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1641),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3382),
                             Name = "F-150"
                         },
                         new
                         {
                             Id = 12,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1641),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3382),
                             Name = "Model S"
                         },
                         new
                         {
                             Id = 13,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1642),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3383),
                             Name = "Sierra"
                         },
                         new
                         {
                             Id = 14,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1643),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3384),
                             Name = "Q7"
                         },
                         new
                         {
                             Id = 15,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1643),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3384),
                             Name = "Santa Fe"
                         },
                         new
                         {
                             Id = 16,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1644),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3385),
                             Name = "RX"
                         },
                         new
                         {
                             Id = 17,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1644),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3386),
                             Name = "Sportage"
                         },
                         new
                         {
                             Id = 18,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1645),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3386),
                             Name = "F-PACE"
                         },
                         new
                         {
                             Id = 19,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1646),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3387),
                             Name = "Discovery"
                         },
                         new
                         {
                             Id = 20,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1646),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3387),
                             Name = "Mustang"
                         });
                 });
@@ -917,25 +935,25 @@ namespace MCRSearch.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1662),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3411),
                             Name = "Automóvil"
                         },
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1698),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3413),
                             Name = "Camioneta"
                         },
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1699),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3413),
                             Name = "SUV"
                         },
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2024, 2, 16, 5, 6, 5, 532, DateTimeKind.Local).AddTicks(1700),
+                            CreateDate = new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3414),
                             Name = "Campero"
                         });
                 });
@@ -964,6 +982,15 @@ namespace MCRSearch.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "341743f0-asd2-42de-afbf-59kmkkmk72cf6",
+                            ConcurrencyStamp = "341743f0-asd2-42de-afbf-59kmkkmk72cf6",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1047,6 +1074,13 @@ namespace MCRSearch.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "02174cf0–9412–4cfe-afbf-59f706d72cf6",
+                            RoleId = "341743f0-asd2-42de-afbf-59kmkkmk72cf6"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

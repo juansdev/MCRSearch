@@ -1,7 +1,9 @@
 ﻿using MCRSearch.src.MCRSearch.Core.Entities;
 using MCRSearch.src.MCRSearch.Core.Entities.Commons;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Crypto.Macs;
 
 namespace MCRSearch.src.MCRSearch.Infrastructure
 {
@@ -12,7 +14,49 @@ namespace MCRSearch.src.MCRSearch.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            SeedData(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+        }
+
+        private void SeedData(ModelBuilder modelBuilder)
+        {
             modelBuilder.Ignore<BaseEntity>();
+            string ADMIN_ID = "02174cf0–9412–4cfe-afbf-59f706d72cf6";
+            string ROLE_ID = "341743f0-asd2-42de-afbf-59kmkkmk72cf6";
+
+            //seed admin role
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
+            {
+                Name = "admin",
+                NormalizedName = "ADMIN",
+                Id = ROLE_ID,
+                ConcurrencyStamp = ROLE_ID
+            });
+
+            //create user
+            var appUser = new AppUser
+            {
+                Id = ADMIN_ID,
+                Email = "admin@admin.com",
+                EmailConfirmed = true,
+                Name = "admin",
+                UserName = "admin",
+             NormalizedUserName = "ADMIN"
+            };
+
+            //set user password
+            PasswordHasher<AppUser> ph = new PasswordHasher<AppUser>();
+            appUser.PasswordHash = ph.HashPassword(appUser, "Admin123*");
+
+            //seed user
+            modelBuilder.Entity<AppUser>().HasData(appUser);
+
+            //set user role to admin
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = ROLE_ID,
+                UserId = ADMIN_ID
+            });
             // Seed Countries
             modelBuilder.Entity<Country>().HasData(
                 new Country { Id = 1, Name = "Colombia" },
@@ -137,8 +181,6 @@ namespace MCRSearch.src.MCRSearch.Infrastructure
                 new AvailableVehicle { Id = 19, VehicleId = 19, PickUpCityId = 2, ReturnCityId = 2 },
                 new AvailableVehicle { Id = 20, VehicleId = 20, PickUpCityId = 4, ReturnCityId = 4 }
             );
-
-            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<AppUser> AppUser { get; set; }

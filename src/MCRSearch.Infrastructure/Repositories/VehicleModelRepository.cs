@@ -11,29 +11,66 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
         {
             _context = context;
         }
+
+        /// <summary>
+        /// Obtiene todos los modelos del vehiculo.
+        /// </summary>
         public async Task<List<VehicleModel>> GetVehicleModels()
         {
             return await _context.VehicleModels.OrderBy(vm => vm.Name).ToListAsync();
         }
 
+        /// <summary>
+        /// Obtiene el modelo del vehiculo segun el ID.
+        /// </summary>
         public async Task<VehicleModel?> GetVehicleModel(int id)
         {
             return await _context.VehicleModels.FirstOrDefaultAsync(vm => vm.Id == id);
         }
 
+        /// <summary>
+        /// Obtiene el modelo del vehiculo segun el nombre.
+        /// </summary>
         public async Task<VehicleModel?> GetVehicleModel(string name)
         {
             return await _context.VehicleModels.FirstOrDefaultAsync(vm => vm.Name.ToLower().Trim() == name.ToLower().Trim());
         }
 
-        public async Task<bool> IsAvailable(int id)
+        /// <summary>
+        /// Crea un registro de modelo de vehiculo.
+        /// </summary>
+        public async Task<bool> CreateVehicleModel(VehicleModel vehicleModel)
         {
-            return await _context.VehicleModels.AnyAsync(vm => vm.Id == id);
+            vehicleModel.CreateDate = DateTime.Now;
+            await _context.VehicleModels.AddAsync(vehicleModel);
+            return await Save();
         }
 
-        public async Task<bool> IsAvailable(string name)
+        /// <summary>
+        /// Actualiza un registro de modelo de vehiculo.
+        /// </summary>
+        public async Task<bool> UpdateVehicleModel(VehicleModel vehicleModel)
         {
-            return await _context.VehicleModels.AnyAsync(vm => vm.Name.ToLower().Trim() == name.ToLower().Trim());
+            vehicleModel.UpdatedDate = DateTime.Now;
+            _context.VehicleModels.Update(vehicleModel);
+            return await Save();
+        }
+
+        /// <summary>
+        /// Elimina un registro de modelo de vehiculo.
+        /// </summary>
+        public async Task<bool> DeleteVehicleModel(VehicleModel vehicleModel)
+        {
+            _context.VehicleModels.Remove(vehicleModel);
+            return await Save();
+        }
+
+        /// <summary>
+        /// Guarda los cambios en la BD.
+        /// </summary>
+        public async Task<bool> Save()
+        {
+            return await _context.SaveChangesAsync() >= 0;
         }
     }
 }

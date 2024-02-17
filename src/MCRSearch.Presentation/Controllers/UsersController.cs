@@ -16,6 +16,9 @@ namespace ApiMovies.Controllers
             _userService = userService;
         }
 
+        /// <summary>
+        /// Obtiene todos los usuarios, solo habilitado para el rol Admin.
+        /// </summary>
         [Authorize(Roles = "admin")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -27,16 +30,19 @@ namespace ApiMovies.Controllers
             return Ok(listUsers);
         }
 
+        /// <summary>
+        /// Obtiene el usuario por ID, solo habilitado para el rol Admin.
+        /// </summary>
         [Authorize(Roles = "admin")]
-        [HttpGet("{userId}", Name = "GetUser")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetUser(string userId)
+        public IActionResult GetUser(string id)
         {
-            var itemUser = _userService.GetUser(userId);
+            var itemUser = _userService.GetUser(id);
             if (itemUser == null)
             {
                 return NotFound();
@@ -44,6 +50,9 @@ namespace ApiMovies.Controllers
             return Ok(itemUser);
         }
 
+        /// <summary>
+        /// Registra el usuario en la BD.
+        /// </summary>
         [AllowAnonymous]
         [HttpPost("register")]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -59,6 +68,9 @@ namespace ApiMovies.Controllers
             return BadRequest(responseApi);
         }
 
+        /// <summary>
+        /// Obtiene el JWT Bearer para la autentificacion.
+        /// </summary>
         [AllowAnonymous]
         [HttpPost("login")]
         [ProducesResponseType(StatusCodes.Status201Created)]

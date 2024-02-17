@@ -12,6 +12,10 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
         {
             _context = context;
         }
+
+        /// <summary>
+        /// Obtiene todos los vehiculos.
+        /// </summary>
         public async Task<List<Vehicle>> GetVehicles()
         {
             return await _context.Vehicles
@@ -21,11 +25,37 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
                     .ToListAsync();
         }
 
+        /// <summary>
+        /// Obtiene el vehiculo segun la ID.
+        /// </summary>
         public async Task<Vehicle?> GetVehicle(int id)
         {
-            return await _context.Vehicles.FirstOrDefaultAsync(ve => ve.Id == id);
+            return await _context.Vehicles
+                    .Include(v => v.VehicleModel)
+                    .Include(v => v.VehicleBrand)
+                    .Include(v => v.VehicleType)
+                    .FirstOrDefaultAsync(ve => ve.Id == id);
         }
 
+        /// <summary>
+        /// Obtiene el vehiculo segun el nombre del modelo, del tipo y de la marca.
+        /// </summary>
+        public async Task<Vehicle?> GetVehicle(string modelName, string typeName, string brandName)
+        {
+            return await _context.Vehicles
+                .Include(ve => ve.VehicleModel)
+                .Include(ve => ve.VehicleType)
+                .Include(ve => ve.VehicleBrand)
+                .FirstOrDefaultAsync(
+                    ve => ve.VehicleModel.Name.ToLower().Trim() == modelName.ToLower().Trim() &&
+                          ve.VehicleType.Name.ToLower().Trim() == typeName.ToLower().Trim() &&
+                          ve.VehicleBrand.Name.ToLower().Trim() == brandName.ToLower().Trim()
+                );
+        }
+
+        /// <summary>
+        /// Obtiene el vehiculo segun el ID del modelo, del tipo y de la marca.
+        /// </summary>
         public async Task<Vehicle?> GetVehicle(int modelId, int typeId, int brandId)
         {
             return await _context.Vehicles
@@ -39,24 +69,40 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
                 );
         }
 
-        public async Task<bool> IsAvailable(int id)
-        {
-            return await _context.Vehicles.AnyAsync(ve => ve.Id == id);
-        }
-
+        /// <summary>
+        /// Obtiene todos los vehiculos según el modelo.
+        /// </summary>
         public async Task<List<Vehicle>> GetVehiclesInModel(int modelId)
         {
-            return await _context.Vehicles.Include(ve=>ve.VehicleModel).Where(vm=>vm.VehicleModelId == modelId).ToListAsync();
+            return await _context.Vehicles
+                    .Include(v => v.VehicleModel)
+                    .Include(v => v.VehicleBrand)
+                    .Include(v => v.VehicleType)
+                    .Include(ve=>ve.VehicleModel).Where(vm=>vm.VehicleModelId == modelId).ToListAsync();
         }
 
+        /// <summary>
+        /// Obtiene todos los vehiculos segun el tipo.
+        /// </summary>
         public async Task<List<Vehicle>> GetVehiclesInType(int typeId)
         {
-            return await _context.Vehicles.Include(ve => ve.VehicleType).Where(vt => vt.VehicleTypeId == typeId).ToListAsync();
+            return await _context.Vehicles
+                    .Include(v => v.VehicleModel)
+                    .Include(v => v.VehicleBrand)
+                    .Include(v => v.VehicleType)
+                    .Include(ve => ve.VehicleType).Where(vt => vt.VehicleTypeId == typeId).ToListAsync();
         }
 
+        /// <summary>
+        /// Obtiene todos los vehiculos segun la marca.
+        /// </summary>
         public async Task<List<Vehicle>> GetVehiclesInBrand(int brandId)
         {
-            return await _context.Vehicles.Include(ve => ve.VehicleBrand).Where(vb => vb.VehicleTypeId == brandId).ToListAsync();
+            return await _context.Vehicles
+                    .Include(v => v.VehicleModel)
+                    .Include(v => v.VehicleBrand)
+                    .Include(v => v.VehicleType)
+                    .Include(ve => ve.VehicleBrand).Where(vb => vb.VehicleTypeId == brandId).ToListAsync();
         }
     }
 }

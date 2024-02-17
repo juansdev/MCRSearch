@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using MCRSearch.src.MCRSearch.Application.Dtos;
 using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
+using MCRSearch.src.MCRSearch.Core.Entities;
+using MCRSearch.src.MCRSearch.Infrastructure.Dtos;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace MCRSearch.src.MCRSearch.Application.Services
@@ -11,15 +12,18 @@ namespace MCRSearch.src.MCRSearch.Application.Services
     {
         private readonly IAppUserRepository _appUserRepository;
         private readonly IMapper _mapper;
-        protected ResponseAPI _responseApi;
+        protected ResponseAPI<LoginUserResponseDto> _responseApi;
 
         public AppUserService(IAppUserRepository appUserRepository, IMapper mapper)
         {
             _appUserRepository = appUserRepository;
             _mapper = mapper;
-            _responseApi = new ResponseAPI();
+            _responseApi = new ResponseAPI<LoginUserResponseDto>();
         }
 
+        /// <summary>
+        /// Obtiene todos los usuarios.
+        /// </summary>
         public List<AppUserDto> GetUsers()
         {
             var listUsers = _appUserRepository.GetUsers().Result;
@@ -31,13 +35,19 @@ namespace MCRSearch.src.MCRSearch.Application.Services
             return listUsersDto;
         }
 
+        /// <summary>
+        /// Obtiene el usuario por ID.
+        /// </summary>
         public AppUserDto GetUser(string userId)
         {
             var itemUser = _appUserRepository.GetUser(userId).Result;
             return _mapper.Map<AppUserDto>(itemUser);
         }
 
-        public ResponseAPI Register(RegisterUserDto registerUserDto)
+        /// <summary>
+        /// Registra el usuario en la BD.
+        /// </summary>
+        public ResponseAPI<LoginUserResponseDto> Register(RegisterUserDto registerUserDto)
         {
             bool validateUserNameUnique = _appUserRepository.IsUniqueUser(registerUserDto.UserName).Result;
             if (!validateUserNameUnique)
@@ -60,7 +70,10 @@ namespace MCRSearch.src.MCRSearch.Application.Services
             return _responseApi;
         }
 
-        public ResponseAPI Login(LoginUserDto loginUserDto)
+        /// <summary>
+        /// Autentifica al usuario con un token JWT Bearer.
+        /// </summary>
+        public ResponseAPI<LoginUserResponseDto> Login(LoginUserDto loginUserDto)
         {
             var responseLogin = _appUserRepository.Login(loginUserDto).Result;
             if (responseLogin.User == null || string.IsNullOrEmpty(responseLogin.Token))

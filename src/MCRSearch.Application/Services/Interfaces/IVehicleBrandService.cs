@@ -1,9 +1,16 @@
-﻿using MCRSearch.src.MCRSearch.Presentation.Dtos;
+﻿using MCRSearch.src.MCRSearch.Application.Dtos;
+using MCRSearch.src.MCRSearch.Core.Entities;
+using MCRSearch.src.MCRSearch.Presentation.Dtos;
 
 namespace MCRSearch.src.MCRSearch.Application.Services.Interfaces
 {
     public interface IVehicleBrandService
     {
-        public List<VehicleBrandDto> GetVehicleBrands();
+        List<VehicleBrandDto> GetVehicleBrands();
+        VehicleBrandDto GetVehicleBrand(int id);
+        VehicleBrandDto GetVehicleBrand(string name);
+        ResponseAPI<VehicleBrand> CreateVehicleBrand(VehicleBrandDto vehicleBrandDto);
+        ResponseAPI<VehicleBrand> PatchVehicleBrand(VehicleBrandDto vehicleBrandDto);
+        ResponseAPI<VehicleBrand> DeleteVehicleBrand(int vehicleBrandId);
     }
 }

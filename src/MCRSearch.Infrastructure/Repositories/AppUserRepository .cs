@@ -13,6 +13,9 @@ using MCRSearch.src.MCRSearch.Infrastructure.Dtos;
 
 namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
 {
+    /// <summary>
+    /// Repositorio para gestionar operaciones relacionadas con usuarios en la base de datos.
+    /// </summary>
     public class AppUserRepository : IAppUserRepository
     {
         private readonly ApplicationDbContext _context;
@@ -28,21 +31,33 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Obtiene un usuario por su identificador.
+        /// </summary>
         public async Task<AppUser?> GetUser(string userId)
         {
             return await _context.AppUser.FirstOrDefaultAsync(u => u.Id == userId);
         }
 
+        /// <summary>
+        /// Obtiene la lista de todos los usuarios.
+        /// </summary>
         public async Task<List<AppUser>> GetUsers()
         {
             return await _context.AppUser.OrderBy(u => u.UserName).ToListAsync();
         }
 
+        /// <summary>
+        /// Verifica si un nombre de usuario es único.
+        /// </summary>
         public async Task<bool> IsUniqueUser(string user)
         {
             return await _context.AppUser.FirstOrDefaultAsync(u => u.UserName == user) == null;
         }
 
+        /// <summary>
+        /// Realiza el proceso de inicio de sesión y genera un token JWT.
+        /// </summary>
         public async Task<LoginUserResponseDto> Login(LoginUserDto loginUserDto)
         {
             // var passwordEncrypt = getMd5(loginUserDto.Password);
@@ -77,6 +92,9 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
             return loginUserResponseDto;
         }
 
+        /// <summary>
+        /// Encripta la clave aplicando el algoritmo MD5.
+        /// </summary>
         public static string getMd5(string password)
         {
             MD5CryptoServiceProvider x = new MD5CryptoServiceProvider();
@@ -90,6 +108,9 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
             return resp;
         }
 
+        /// <summary>
+        /// Registra un nuevo usuario en la base de datos.
+        /// </summary>
         public async Task<AppUserDataDto> Register(RegisterUserDto registerUserDto)
         {
             AppUser user = new AppUser()
@@ -105,12 +126,9 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
                 if (!_roleManager.RoleExistsAsync("admin").GetAwaiter().GetResult())
                 {
                     await _roleManager.CreateAsync(new IdentityRole("admin"));
-                    await _roleManager.CreateAsync(new IdentityRole("registered"));
-                    await _userManager.AddToRoleAsync(user, "admin");
-                } else
-                {
-                    await _userManager.AddToRoleAsync(user, "registered");
+                    await _roleManager.CreateAsync(new IdentityRole("user"));
                 }
+                await _userManager.AddToRoleAsync(user, "user");
                 var userReturned = _context.AppUser.FirstOrDefault(u => u.UserName == registerUserDto.UserName);
                 return _mapper.Map<AppUserDataDto>(userReturned);
             }

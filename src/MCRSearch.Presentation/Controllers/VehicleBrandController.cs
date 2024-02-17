@@ -1,4 +1,6 @@
-﻿using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
+﻿using MCRSearch.src.MCRSearch.Application.Services;
+using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
+using MCRSearch.src.MCRSearch.Presentation.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +14,10 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         public VehicleBrandController(IVehicleBrandService vehicleBrandService) {
             _vehicleBrandService = vehicleBrandService;
         }
+
+        /// <summary>
+        /// Obtiene todos las marcas de los vehiculos.
+        /// </summary>
         [AllowAnonymous]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -25,6 +31,119 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
                 return Ok(listVehicleBrands);
             }
             return NotFound();
+        }
+
+        /// <summary>
+        /// Obtiene la marca del vehiculo por ID.
+        /// </summary>
+        [AllowAnonymous]
+        [HttpGet("{id:int}", Name = "GetVehicleBrand")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetVehicleBrand(int id)
+        {
+            var vehicleBrand = _vehicleBrandService.GetVehicleBrand(id);
+            if (vehicleBrand != null)
+            {
+                return Ok(vehicleBrand);
+            }
+            return NotFound();
+        }
+
+        /// <summary>
+        /// Obtiene la marca del vehiculo por nombre.
+        /// </summary>
+        [AllowAnonymous]
+        [HttpGet("{name}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult GetVehicleBrand(string name)
+        {
+            var vehicleBrand = _vehicleBrandService.GetVehicleBrand(name);
+            if (vehicleBrand != null)
+            {
+                return Ok(vehicleBrand);
+            }
+            return NotFound();
+        }
+
+        /// <summary>
+        /// Crea la marca del vehiculo.
+        /// </summary>
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        [ProducesResponseType(201, Type = typeof(VehicleBrandDto))]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult CreateVehicleBrand([FromBody] VehicleBrandDto vehicleBrandDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (vehicleBrandDto == null)
+            {
+                return BadRequest(ModelState);
+            }
+            var responseApi = _vehicleBrandService.CreateVehicleBrand(vehicleBrandDto);
+            if (responseApi.IsSuccess)
+            {
+                var vehicleBrand = responseApi.Result;
+                return CreatedAtRoute("GetVehicleBrand", new { id = vehicleBrand.Id }, vehicleBrand);
+            }
+            return BadRequest(responseApi);
+        }
+
+        /// <summary>
+        /// Actualiza la marca del vehiculo.
+        /// </summary>
+        [Authorize(Roles = "admin")]
+        [HttpPatch()]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult PatchVehicleBrand([FromBody] VehicleBrandDto vehicleBrandDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var responseApi = _vehicleBrandService.PatchVehicleBrand(vehicleBrandDto);
+            if (responseApi.IsSuccess)
+            {
+                return NoContent();
+            }
+            return BadRequest(responseApi);
+        }
+
+        /// <summary>
+        /// Elimina la marca del vehiculo.
+        /// </summary>
+        [Authorize(Roles = "admin")]
+        [HttpDelete("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult DeleteVehicleBrand(int id)
+        {
+            if (_vehicleBrandService.GetVehicleBrand(id) == null)
+            {
+                return NotFound();
+            }
+            var responseApi = _vehicleBrandService.DeleteVehicleBrand(id);
+            if (responseApi.IsSuccess)
+            {
+                return NoContent();
+            }
+            return BadRequest(responseApi);
         }
     }
 }
