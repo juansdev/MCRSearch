@@ -35,7 +35,7 @@ namespace ApiMovies.Controllers
         /// Obtiene el usuario por ID, solo habilitado para el rol Admin.
         /// </summary>
         [Authorize(Roles = "admin")]
-        [HttpGet("{id:int}")]
+        [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AppUserDto))]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]

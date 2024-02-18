@@ -11,7 +11,10 @@ namespace MCRSearch.src.MCRSearch.Application.Mapper
         {
             CreateMap<AppUser, AppUserLoginDataDto>().ReverseMap();
             CreateMap<AppUser, AppUserDto>().ReverseMap();
+
             CreateMap<AvailableVehicle, AvailableVehicleDto>().ReverseMap();
+            CreateMap<AvailableVehicle, AvailableVehiclePatchDto>().ReverseMap();
+            CreateMap<AvailableVehicle, AvailableVehiclePostDto>().ReverseMap();
 
             CreateMap<Country, CountryDto>().ReverseMap();
             CreateMap<Country, CountryPostDto>().ReverseMap();

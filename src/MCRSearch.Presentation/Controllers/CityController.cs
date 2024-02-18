@@ -133,7 +133,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult DeleteVehicleCity(int id)
+        public IActionResult DeleteCity(int id)
         {
             if (_cityService.GetCity(id) == null)
             {

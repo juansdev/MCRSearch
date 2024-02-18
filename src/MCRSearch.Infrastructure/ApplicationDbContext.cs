@@ -3,6 +3,7 @@ using MCRSearch.src.MCRSearch.Core.Entities.Commons;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace MCRSearch.src.MCRSearch.Infrastructure
 {
@@ -17,22 +18,32 @@ namespace MCRSearch.src.MCRSearch.Infrastructure
             base.OnModelCreating(modelBuilder);
         }
 
-        private void SeedData(ModelBuilder modelBuilder)
+        public void SeedData(ModelBuilder modelBuilder)
         {
             modelBuilder.Ignore<BaseEntity>();
             string ADMIN_ID = "02174cf0–9412–4cfe-afbf-59f706d72cf6";
-            string ROLE_ID = "341743f0-asd2-42de-afbf-59kmkkmk72cf6";
+            string ROLE_ADMIN_ID = "341743f0-asd2-42de-afbf-59kmkkmk72cf6";
+            string ROLE_USER_ID = "341743f1-asd2-42de-afbf-59kmkkmk72cf6";
 
             //seed admin role
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
             {
                 Name = "admin",
                 NormalizedName = "ADMIN",
-                Id = ROLE_ID,
-                ConcurrencyStamp = ROLE_ID
+                Id = ROLE_ADMIN_ID,
+                ConcurrencyStamp = ROLE_ADMIN_ID
             });
 
-            //create user
+            //seed user role
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
+            {
+                Name = "user",
+                NormalizedName = "USER",
+                Id = ROLE_USER_ID,
+                ConcurrencyStamp = ROLE_USER_ID
+            });
+
+            //create user with role admin
             var appUser = new AppUser
             {
                 Id = ADMIN_ID,
@@ -53,7 +64,7 @@ namespace MCRSearch.src.MCRSearch.Infrastructure
             //set user role to admin
             modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
-                RoleId = ROLE_ID,
+                RoleId = ROLE_ADMIN_ID,
                 UserId = ADMIN_ID
             });
             // Seed Countries

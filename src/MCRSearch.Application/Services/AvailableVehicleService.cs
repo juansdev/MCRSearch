@@ -16,6 +16,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         {
             _availableVehicleRepository = availableVehicleRepository;
             _mapper = mapper;
+            _responseApi = new ResponseAPI<AvailableVehicle>();
         }
 
         /// <summary>

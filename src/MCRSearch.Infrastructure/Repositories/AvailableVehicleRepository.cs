@@ -78,7 +78,11 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
                 .Include(av => av.Vehicle)
                     .ThenInclude(v => v.VehicleType)
                 .Include(av => av.ReturnCity)
+                    .ThenInclude(rc => rc.Department)
+                        .ThenInclude(d => d.Country)
                 .Include(av => av.PickUpCity)
+                    .ThenInclude(rc => rc.Department)
+                        .ThenInclude(d => d.Country)
                 .FirstOrDefaultAsync(av => av.Id == id);
         }
 

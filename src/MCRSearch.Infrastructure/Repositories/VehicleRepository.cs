@@ -102,7 +102,7 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
                     .Include(v => v.VehicleModel)
                     .Include(v => v.VehicleBrand)
                     .Include(v => v.VehicleType)
-                    .Include(ve => ve.VehicleBrand).Where(vb => vb.VehicleTypeId == brandId).ToListAsync();
+                    .Include(ve => ve.VehicleBrand).Where(vb => vb.VehicleBrandId == brandId).ToListAsync();
         }
 
         /// <summary>
