@@ -55,7 +55,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Crea la marca del vehiculo.
         /// </summary>
-        public ResponseAPI<VehicleBrand> CreateVehicleBrand(VehicleBrandDto vehicleBrandDto)
+        public ResponseAPI<VehicleBrand> CreateVehicleBrand(VehicleBrandPostDto vehicleBrandDto)
         {
             if (_vehicleBrandRepository.GetVehicleBrand(vehicleBrandDto.Name).Result != null)
             {
@@ -81,7 +81,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Actualiza la marca del vehiculo.
         /// </summary>
-        public ResponseAPI<VehicleBrand> PatchVehicleBrand(VehicleBrandDto vehicleBrandDto)
+        public ResponseAPI<VehicleBrand> PatchVehicleBrand(VehicleBrandPatchDto vehicleBrandDto)
         {
             var vehicleBrand = _mapper.Map<VehicleBrand>(vehicleBrandDto);
             if (!_vehicleBrandRepository.UpdateVehicleBrand(vehicleBrand).Result)

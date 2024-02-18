@@ -1,9 +1,11 @@
 ﻿using MCRSearch.src.MCRSearch.Core.Entities;
+using MCRSearch.src.MCRSearch.Presentation.DTOs.Commons;
 
 namespace MCRSearch.src.MCRSearch.Presentation.Dtos
 {
-    public class VehicleDto
+    public class VehicleDto: BaseDto
     {
+        public int Id { get; set; }
         public int VehicleBrandId { get; set; }
         public VehicleBrand? VehicleBrand { get; set; }
         public int VehicleModelId { get; set; }

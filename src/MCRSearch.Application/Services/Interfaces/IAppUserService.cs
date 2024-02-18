@@ -1,6 +1,6 @@
 ﻿using MCRSearch.src.MCRSearch.Application.Dtos;
 using MCRSearch.src.MCRSearch.Infrastructure.Dtos;
-using Microsoft.AspNetCore.Mvc;
+using MCRSearch.src.MCRSearch.Presentation.DTOs;
 
 namespace MCRSearch.src.MCRSearch.Application.Services.Interfaces
 {
@@ -8,7 +8,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services.Interfaces
     {
         List<AppUserDto> GetUsers();
         AppUserDto GetUser(string userId);
-        ResponseAPI<LoginUserResponseDto> Register(RegisterUserDto registerUserDto);
-        ResponseAPI<LoginUserResponseDto> Login(LoginUserDto loginUserDto);
+        ResponseAPI<AppUserLoginResponseDto> Register(AppUserRegisterDto registerUserDto);
+        ResponseAPI<AppUserLoginResponseDto> Login(AppUserLoginDto loginUserDto);
     }
 }

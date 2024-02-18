@@ -1,5 +1,5 @@
-﻿using MCRSearch.src.MCRSearch.Application.Dtos;
-using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
+﻿using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
+using MCRSearch.src.MCRSearch.Presentation.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,11 +7,11 @@ namespace ApiMovies.Controllers
 {
     [Route("api/users")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class AppUserController : ControllerBase
     {
         private readonly IAppUserService _userService;
 
-        public UsersController(IAppUserService userService)
+        public AppUserController(IAppUserService userService)
         {
             _userService = userService;
         }
@@ -58,7 +58,7 @@ namespace ApiMovies.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult Register([FromBody] RegisterUserDto registerUserDto)
+        public IActionResult Register([FromBody] AppUserRegisterDto registerUserDto)
         {
             var responseApi = _userService.Register(registerUserDto);
             if (responseApi.IsSuccess)
@@ -76,7 +76,7 @@ namespace ApiMovies.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult Login([FromBody] LoginUserDto loginUserDto)
+        public IActionResult Login([FromBody] AppUserLoginDto loginUserDto)
         {
             var responseApi = _userService.Login(loginUserDto);
             if (responseApi.IsSuccess)

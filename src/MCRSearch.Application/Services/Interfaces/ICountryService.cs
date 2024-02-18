@@ -9,8 +9,8 @@ namespace MCRSearch.src.MCRSearch.Application.Services.Interfaces
         List<CountryDto> GetCountries();
         CountryDto GetCountry(int id);
         CountryDto GetCountry(string name);
-        ResponseAPI<Country> CreateCountry(CountryDto countryDto);
-        ResponseAPI<Country> PatchCountry(CountryDto countryDto);
+        ResponseAPI<Country> CreateCountry(CountryPostDto countryDto);
+        ResponseAPI<Country> PatchCountry(CountryPatchDto countryDto);
         ResponseAPI<Country> DeleteCountry(int countryId);
     }
 }

@@ -9,8 +9,8 @@ namespace MCRSearch.src.MCRSearch.Application.Services.Interfaces
         List<VehicleTypeDto> GetVehicleTypes();
         VehicleTypeDto GetVehicleType(int id);
         VehicleTypeDto GetVehicleType(string name);
-        ResponseAPI<VehicleType> CreateVehicleType(VehicleTypeDto vehicleTypeDto);
-        ResponseAPI<VehicleType> PatchVehicleType(VehicleTypeDto vehicleTypeDto);
+        ResponseAPI<VehicleType> CreateVehicleType(VehicleTypePostDto vehicleTypeDto);
+        ResponseAPI<VehicleType> PatchVehicleType(VehicleTypePatchDto vehicleTypeDto);
         ResponseAPI<VehicleType> DeleteVehicleType(int vehicleTypeId);
     }
 }

@@ -3,13 +3,12 @@ using MCRSearch.src.MCRSearch.Core.Entities.Commons;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Crypto.Macs;
 
 namespace MCRSearch.src.MCRSearch.Infrastructure
 {
-    public class ApplicationDbContext: IdentityDbContext<AppUser>
+    public class ApplicationDbContext: IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options){
+        public ApplicationDbContext(DbContextOptions options): base(options){
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

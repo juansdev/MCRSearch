@@ -2,7 +2,6 @@
 using MCRSearch.src.MCRSearch.Application.Dtos;
 using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
 using MCRSearch.src.MCRSearch.Core.Entities;
-using MCRSearch.src.MCRSearch.Infrastructure.Repositories;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces;
 using MCRSearch.src.MCRSearch.Presentation.Dtos;
 using System.Net;
@@ -56,7 +55,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Crear el pais.
         /// </summary>
-        public ResponseAPI<Country> CreateCountry(CountryDto countryDto)
+        public ResponseAPI<Country> CreateCountry(CountryPostDto countryDto)
         {
             if (_countryRepository.GetCountry(countryDto.Name).Result != null)
             {
@@ -82,7 +81,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Actualizar el pais.
         /// </summary>
-        public ResponseAPI<Country> PatchCountry(CountryDto countryDto)
+        public ResponseAPI<Country> PatchCountry(CountryPatchDto countryDto)
         {
             var country = _mapper.Map<Country>(countryDto);
             if (!_countryRepository.UpdateCountry(country).Result)

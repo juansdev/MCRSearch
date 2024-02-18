@@ -1,15 +1,21 @@
-﻿using MCRSearch.src.MCRSearch.Application.Dtos;
-using MCRSearch.src.MCRSearch.Core.Entities;
+﻿using MCRSearch.src.MCRSearch.Core.Entities;
 using MCRSearch.src.MCRSearch.Infrastructure.Dtos;
+using MCRSearch.src.MCRSearch.Presentation.DTOs;
+using Microsoft.AspNetCore.Identity;
 
 namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces
 {
     public interface IAppUserRepository
     {
-        Task<List<AppUser>> GetUsers();
         Task<AppUser?> GetUser(string userId);
+        Task<AppUser?> GetUserByUserName(string userId);
+        Task<List<AppUser>> GetUsers();
         Task<bool> IsUniqueUser(string user);
-        Task<LoginUserResponseDto> Login(LoginUserDto loginUserDto);
-        Task<AppUserDataDto> Register(RegisterUserDto registerUserDto);
+        Task<bool> IsPasswordValid(AppUser user, string password);
+        Task<IList<string>> GetRolesByUser(AppUser user);
+        Task<IdentityResult> CreateUser(AppUserRegisterDto registerUserDto);
+        Task<IdentityResult> CreateRole(string role);
+        Task<IdentityResult> AddRoleToUser(AppUser user, string role);
+        Task<bool> ExistRole(string role);
     }
 }

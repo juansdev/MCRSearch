@@ -1,7 +1,10 @@
-﻿namespace MCRSearch.src.MCRSearch.Presentation.Dtos
+﻿using MCRSearch.src.MCRSearch.Presentation.DTOs.Commons;
+
+namespace MCRSearch.src.MCRSearch.Presentation.Dtos
 {
-    public class VehicleTypeDto
+    public class VehicleTypeDto: BaseDto
     {
+        public int Id { get; set; }
         public string? Name { get; set; }
     }
 }

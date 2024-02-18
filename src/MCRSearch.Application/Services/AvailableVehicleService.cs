@@ -2,9 +2,8 @@
 using MCRSearch.src.MCRSearch.Application.Dtos;
 using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
 using MCRSearch.src.MCRSearch.Core.Entities;
-using MCRSearch.src.MCRSearch.Infrastructure.Repositories;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces;
-using MCRSearch.src.MCRSearch.Presentation.Dtos;
+using MCRSearch.src.MCRSearch.Presentation.DTOs;
 using System.Net;
 
 namespace MCRSearch.src.MCRSearch.Application.Services
@@ -101,7 +100,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Agrega a disponibilidad un vehiculo.
         /// </summary>
-        public ResponseAPI<AvailableVehicle> CreateAvailableVehicle(AvailableVehicleDto availableVehicleDto)
+        public ResponseAPI<AvailableVehicle> CreateAvailableVehicle(AvailableVehiclePostDto availableVehicleDto)
         {
             if (_availableVehicleRepository.GetAvailableVehicle(availableVehicleDto.VehicleId).Result != null)
             {
@@ -127,7 +126,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Actualiza la disponibilidad de un vehiculo.
         /// </summary>
-        public ResponseAPI<AvailableVehicle> PatchAvailableVehicle(AvailableVehicleDto availableVehicleDto)
+        public ResponseAPI<AvailableVehicle> PatchAvailableVehicle(AvailableVehiclePatchDto availableVehicleDto)
         {
             var availableVehicle = _mapper.Map<AvailableVehicle>(availableVehicleDto);
             if (!_availableVehicleRepository.UpdateAvailableVehicle(availableVehicle).Result)

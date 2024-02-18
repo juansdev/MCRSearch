@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MCRSearch.src.MCRSearch.Presentation.Controllers
 {
-    [Route("api/vehicles")]
+    [Route("api/vehicle")]
     [ApiController]
     public class VehicleController : ControllerBase
     {
@@ -152,7 +152,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult CreateVehicle([FromBody] VehicleDto vehicleDto)
+        public IActionResult CreateVehicle([FromBody] VehiclePostDto vehicleDto)
         {
             if (!ModelState.IsValid)
             {
@@ -180,7 +180,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PatchVehicle([FromBody] VehicleDto vehicleDto)
+        public IActionResult PatchVehicle([FromBody] VehiclePatchDto vehicleDto)
         {
             if (!ModelState.IsValid)
             {

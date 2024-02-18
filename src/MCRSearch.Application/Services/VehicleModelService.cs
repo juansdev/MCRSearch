@@ -55,7 +55,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Crea el modelo del vehiculo.
         /// </summary>
-        public ResponseAPI<VehicleModel> CreateVehicleModel(VehicleModelDto vehicleModelDto)
+        public ResponseAPI<VehicleModel> CreateVehicleModel(VehicleModelPostDto vehicleModelDto)
         {
             if (_vehicleModelRepository.GetVehicleModel(vehicleModelDto.Name).Result != null)
             {
@@ -81,7 +81,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Actualiza el modelo del vehiculo.
         /// </summary>
-        public ResponseAPI<VehicleModel> PatchVehicleModel(VehicleModelDto vehicleModelDto)
+        public ResponseAPI<VehicleModel> PatchVehicleModel(VehicleModelPatchDto vehicleModelDto)
         {
             var vehicleModel = _mapper.Map<VehicleModel>(vehicleModelDto);
             if (!_vehicleModelRepository.UpdateVehicleModel(vehicleModel).Result)

@@ -104,5 +104,33 @@ namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
                     .Include(v => v.VehicleType)
                     .Include(ve => ve.VehicleBrand).Where(vb => vb.VehicleTypeId == brandId).ToListAsync();
         }
+
+        /// <summary>
+        /// Crea un vehiculo.
+        /// </summary>
+        public async Task<bool> CreateVehicle(Vehicle vehicle)
+        {
+            vehicle.CreateDate = DateTime.Now;
+            await _context.Vehicles.AddAsync(vehicle);
+            return await Save();
+        }
+
+        public async Task<bool> UpdateVehicle(Vehicle vehicle)
+        {
+            vehicle.UpdatedDate = DateTime.Now;
+            _context.Vehicles.Update(vehicle);
+            return await Save();
+        }
+
+        public async Task<bool> DeleteVehicle(Vehicle vehicle)
+        {
+            _context.Vehicles.Remove(vehicle);
+            return await Save();
+        }
+
+        public async Task<bool> Save()
+        {
+            return await _context.SaveChangesAsync() >= 0;
+        }
     }
 }

@@ -360,15 +360,15 @@ namespace MCRSearch.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "02174cf0–9412–4cfe-afbf-59f706d72cf6", 0, "cc4d29b6-94ed-4b3e-b244-489b0195c17b", "admin@admin.com", true, false, null, "admin", null, "ADMIN", "AQAAAAIAAYagAAAAENCGropD1B8L4/Wp+2vGkZEkhTqtDGZJ1SP1GMoZ62bwaDFx33Kh3WNx7BzgIEVSWg==", null, false, "578308c7-ca68-415b-a4c9-1e42a46f3830", false, "admin" });
+                values: new object[] { "02174cf0–9412–4cfe-afbf-59f706d72cf6", 0, "3c129d9d-6c58-4dba-9178-b377c3e03b91", "admin@admin.com", true, false, null, "admin", null, "ADMIN", "AQAAAAIAAYagAAAAELLjMjzlFL4Pcg9+TwHp1ZdHxhajPJWUlFKXxZYwebqRLII8lFkP1f6v8QgpCOERGw==", null, false, "6946b7ff-7ee4-447a-8ae9-1337c347ceb0", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Countries",
                 columns: new[] { "Id", "CreateDate", "Name", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3169), "Colombia", null },
-                    { 2, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3189), "Brazil", null }
+                    { 1, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1338), "Colombia", null },
+                    { 2, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1357), "Brazil", null }
                 });
 
             migrationBuilder.InsertData(
@@ -376,26 +376,26 @@ namespace MCRSearch.Migrations
                 columns: new[] { "Id", "CreateDate", "Name", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3256), "Toyota", null },
-                    { 2, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3257), "Honda", null },
-                    { 3, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3258), "Ford", null },
-                    { 4, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3260), "Chevrolet", null },
-                    { 5, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3260), "Nissan", null },
-                    { 6, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3261), "Jeep", null },
-                    { 7, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3262), "Volkswagen", null },
-                    { 8, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3263), "BMW", null },
-                    { 9, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3263), "Mercedes-Benz", null },
-                    { 10, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3264), "Subaru", null },
-                    { 11, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3265), "Ford", null },
-                    { 12, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3265), "Tesla", null },
-                    { 13, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3267), "GMC", null },
-                    { 14, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3267), "Audi", null },
-                    { 15, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3332), "Hyundai", null },
-                    { 16, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3333), "Lexus", null },
-                    { 17, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3334), "Kia", null },
-                    { 18, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3335), "Jaguar", null },
-                    { 19, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3336), "Land Rover", null },
-                    { 20, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3336), "Ford", null }
+                    { 1, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1420), "Toyota", null },
+                    { 2, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1421), "Honda", null },
+                    { 3, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1422), "Ford", null },
+                    { 4, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1423), "Chevrolet", null },
+                    { 5, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1424), "Nissan", null },
+                    { 6, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1425), "Jeep", null },
+                    { 7, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1426), "Volkswagen", null },
+                    { 8, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1426), "BMW", null },
+                    { 9, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1427), "Mercedes-Benz", null },
+                    { 10, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1428), "Subaru", null },
+                    { 11, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1429), "Ford", null },
+                    { 12, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1430), "Tesla", null },
+                    { 13, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1431), "GMC", null },
+                    { 14, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1432), "Audi", null },
+                    { 15, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1432), "Hyundai", null },
+                    { 16, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1433), "Lexus", null },
+                    { 17, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1434), "Kia", null },
+                    { 18, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1435), "Jaguar", null },
+                    { 19, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1436), "Land Rover", null },
+                    { 20, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1437), "Ford", null }
                 });
 
             migrationBuilder.InsertData(
@@ -403,26 +403,26 @@ namespace MCRSearch.Migrations
                 columns: new[] { "Id", "CreateDate", "Name", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3373), "Camry", null },
-                    { 2, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3374), "Accord", null },
-                    { 3, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3375), "Explorer", null },
-                    { 4, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3376), "Malibu", null },
-                    { 5, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3377), "Rogue", null },
-                    { 6, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3378), "Wrangler", null },
-                    { 7, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3379), "Golf", null },
-                    { 8, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3380), "X5", null },
-                    { 9, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3380), "C-Class", null },
-                    { 10, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3381), "Outback", null },
-                    { 11, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3382), "F-150", null },
-                    { 12, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3382), "Model S", null },
-                    { 13, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3383), "Sierra", null },
-                    { 14, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3384), "Q7", null },
-                    { 15, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3384), "Santa Fe", null },
-                    { 16, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3385), "RX", null },
-                    { 17, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3386), "Sportage", null },
-                    { 18, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3386), "F-PACE", null },
-                    { 19, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3387), "Discovery", null },
-                    { 20, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3387), "Mustang", null }
+                    { 1, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1470), "Camry", null },
+                    { 2, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1471), "Accord", null },
+                    { 3, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1472), "Explorer", null },
+                    { 4, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1473), "Malibu", null },
+                    { 5, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1474), "Rogue", null },
+                    { 6, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1474), "Wrangler", null },
+                    { 7, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1475), "Golf", null },
+                    { 8, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1476), "X5", null },
+                    { 9, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1477), "C-Class", null },
+                    { 10, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1478), "Outback", null },
+                    { 11, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1478), "F-150", null },
+                    { 12, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1479), "Model S", null },
+                    { 13, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1480), "Sierra", null },
+                    { 14, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1480), "Q7", null },
+                    { 15, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1481), "Santa Fe", null },
+                    { 16, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1482), "RX", null },
+                    { 17, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1482), "Sportage", null },
+                    { 18, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1483), "F-PACE", null },
+                    { 19, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1484), "Discovery", null },
+                    { 20, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1484), "Mustang", null }
                 });
 
             migrationBuilder.InsertData(
@@ -430,10 +430,10 @@ namespace MCRSearch.Migrations
                 columns: new[] { "Id", "CreateDate", "Name", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3411), "Automóvil", null },
-                    { 2, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3413), "Camioneta", null },
-                    { 3, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3413), "SUV", null },
-                    { 4, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3414), "Campero", null }
+                    { 1, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1505), "Automóvil", null },
+                    { 2, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1506), "Camioneta", null },
+                    { 3, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1507), "SUV", null },
+                    { 4, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1508), "Campero", null }
                 });
 
             migrationBuilder.InsertData(
@@ -446,8 +446,8 @@ namespace MCRSearch.Migrations
                 columns: new[] { "Id", "CountryId", "CreateDate", "Name", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3210), "Cundinamarca", null },
-                    { 2, 2, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3213), "Goiás", null }
+                    { 1, 1, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1382), "Cundinamarca", null },
+                    { 2, 2, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1384), "Goiás", null }
                 });
 
             migrationBuilder.InsertData(
@@ -455,26 +455,26 @@ namespace MCRSearch.Migrations
                 columns: new[] { "Id", "CreateDate", "UpdatedDate", "VehicleBrandId", "VehicleModelId", "VehicleTypeId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3430), null, 1, 1, 1 },
-                    { 2, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3433), null, 2, 2, 1 },
-                    { 3, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3434), null, 3, 3, 2 },
-                    { 4, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3435), null, 4, 4, 1 },
-                    { 5, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3435), null, 5, 5, 3 },
-                    { 6, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3436), null, 6, 6, 4 },
-                    { 7, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3437), null, 7, 7, 1 },
-                    { 8, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3438), null, 8, 8, 3 },
-                    { 9, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3439), null, 9, 9, 1 },
-                    { 10, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3440), null, 10, 10, 2 },
-                    { 11, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3442), null, 11, 11, 2 },
-                    { 12, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3443), null, 12, 12, 1 },
-                    { 13, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3444), null, 13, 13, 2 },
-                    { 14, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3444), null, 14, 14, 2 },
-                    { 15, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3445), null, 15, 15, 3 },
-                    { 16, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3446), null, 16, 16, 3 },
-                    { 17, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3447), null, 17, 17, 3 },
-                    { 18, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3448), null, 18, 18, 3 },
-                    { 19, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3449), null, 19, 19, 3 },
-                    { 20, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3449), null, 20, 20, 1 }
+                    { 1, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1521), null, 1, 1, 1 },
+                    { 2, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1523), null, 2, 2, 1 },
+                    { 3, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1524), null, 3, 3, 2 },
+                    { 4, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1525), null, 4, 4, 1 },
+                    { 5, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1526), null, 5, 5, 3 },
+                    { 6, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1527), null, 6, 6, 4 },
+                    { 7, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1528), null, 7, 7, 1 },
+                    { 8, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1529), null, 8, 8, 3 },
+                    { 9, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1530), null, 9, 9, 1 },
+                    { 10, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1531), null, 10, 10, 2 },
+                    { 11, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1531), null, 11, 11, 2 },
+                    { 12, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1532), null, 12, 12, 1 },
+                    { 13, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1533), null, 13, 13, 2 },
+                    { 14, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1534), null, 14, 14, 2 },
+                    { 15, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1535), null, 15, 15, 3 },
+                    { 16, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1536), null, 16, 16, 3 },
+                    { 17, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1536), null, 17, 17, 3 },
+                    { 18, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1537), null, 18, 18, 3 },
+                    { 19, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1538), null, 19, 19, 3 },
+                    { 20, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1567), null, 20, 20, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -482,10 +482,10 @@ namespace MCRSearch.Migrations
                 columns: new[] { "Id", "CreateDate", "DepartmentId", "Name", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3232), 1, "Bogotá D.C.", null },
-                    { 2, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3236), 1, "Tunja", null },
-                    { 3, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3237), 2, "Brasilia", null },
-                    { 4, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3238), 2, "Goiânia", null }
+                    { 1, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1399), 1, "Bogotá D.C.", null },
+                    { 2, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1402), 1, "Tunja", null },
+                    { 3, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1404), 2, "Brasilia", null },
+                    { 4, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1405), 2, "Goiânia", null }
                 });
 
             migrationBuilder.InsertData(
@@ -493,26 +493,26 @@ namespace MCRSearch.Migrations
                 columns: new[] { "Id", "CreateDate", "PickUpCityId", "ReturnCityId", "UpdatedDate", "VehicleId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3469), 1, 1, null, 1 },
-                    { 2, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3476), 1, 1, null, 2 },
-                    { 3, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3477), 1, 1, null, 3 },
-                    { 4, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3478), 1, 1, null, 2 },
-                    { 5, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3479), 1, 1, null, 5 },
-                    { 6, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3480), 1, 2, null, 6 },
-                    { 7, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3481), 1, 2, null, 5 },
-                    { 8, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3482), 2, 1, null, 8 },
-                    { 9, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3482), 3, 3, null, 5 },
-                    { 10, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3483), 3, 3, null, 10 },
-                    { 11, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3484), 3, 3, null, 14 },
-                    { 12, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3485), 3, 3, null, 3 },
-                    { 13, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3486), 4, 3, null, 12 },
-                    { 14, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3487), 4, 3, null, 14 },
-                    { 15, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3488), 4, 3, null, 20 },
-                    { 16, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3488), 4, 3, null, 1 },
-                    { 17, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3517), 2, 2, null, 17 },
-                    { 18, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3518), 2, 2, null, 14 },
-                    { 19, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3519), 2, 2, null, 19 },
-                    { 20, new DateTime(2024, 2, 16, 17, 29, 49, 159, DateTimeKind.Local).AddTicks(3520), 4, 4, null, 20 }
+                    { 1, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1584), 1, 1, null, 1 },
+                    { 2, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1588), 1, 1, null, 2 },
+                    { 3, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1589), 1, 1, null, 3 },
+                    { 4, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1590), 1, 1, null, 2 },
+                    { 5, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1591), 1, 1, null, 5 },
+                    { 6, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1592), 1, 2, null, 6 },
+                    { 7, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1593), 1, 2, null, 5 },
+                    { 8, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1593), 2, 1, null, 8 },
+                    { 9, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1594), 3, 3, null, 5 },
+                    { 10, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1596), 3, 3, null, 10 },
+                    { 11, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1596), 3, 3, null, 14 },
+                    { 12, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1597), 3, 3, null, 3 },
+                    { 13, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1598), 4, 3, null, 12 },
+                    { 14, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1599), 4, 3, null, 14 },
+                    { 15, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1600), 4, 3, null, 20 },
+                    { 16, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1601), 4, 3, null, 1 },
+                    { 17, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1602), 2, 2, null, 17 },
+                    { 18, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1602), 2, 2, null, 14 },
+                    { 19, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1603), 2, 2, null, 19 },
+                    { 20, new DateTime(2024, 2, 17, 13, 49, 10, 474, DateTimeKind.Local).AddTicks(1604), 4, 4, null, 20 }
                 });
 
             migrationBuilder.CreateIndex(

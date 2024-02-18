@@ -1,7 +1,6 @@
 ﻿using MCRSearch.src.MCRSearch.Core.Entities;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories
 {

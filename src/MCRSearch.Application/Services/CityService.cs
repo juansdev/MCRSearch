@@ -55,7 +55,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Crea la ciudad.
         /// </summary>
-        public ResponseAPI<City> CreateCity(CityDto cityDto)
+        public ResponseAPI<City> CreateCity(CityPostDto cityDto)
         {
             if (_cityRepository.GetCity(cityDto.Name).Result != null)
             {
@@ -81,7 +81,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Actualiza la ciudad.
         /// </summary>
-        public ResponseAPI<City> PatchCity(CityDto cityDto)
+        public ResponseAPI<City> PatchCity(CityPatchDto cityDto)
         {
             var city = _mapper.Map<City>(cityDto);
             if (!_cityRepository.UpdateCity(city).Result)

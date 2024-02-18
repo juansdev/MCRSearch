@@ -80,7 +80,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult CreateDepartment([FromBody] DepartmentDto departmentDto)
+        public IActionResult CreateDepartment([FromBody] DepartmentPostDto departmentDto)
         {
             if (!ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PatchDepartment([FromBody] DepartmentDto departmentDto)
+        public IActionResult PatchDepartment([FromBody] DepartmentPatchDto departmentDto)
         {
             if (!ModelState.IsValid)
             {

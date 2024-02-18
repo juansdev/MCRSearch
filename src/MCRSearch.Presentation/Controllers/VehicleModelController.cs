@@ -81,7 +81,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult CreateVehicleModel([FromBody] VehicleModelDto vehicleModelDto)
+        public IActionResult CreateVehicleModel([FromBody] VehicleModelPostDto vehicleModelDto)
         {
             if (!ModelState.IsValid)
             {
@@ -109,7 +109,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PatchVehicleModel([FromBody] VehicleModelDto vehicleModelDto)
+        public IActionResult PatchVehicleModel([FromBody] VehicleModelPatchDto vehicleModelDto)
         {
             if (!ModelState.IsValid)
             {

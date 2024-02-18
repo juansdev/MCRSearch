@@ -2,7 +2,6 @@
 using MCRSearch.src.MCRSearch.Application.Dtos;
 using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
 using MCRSearch.src.MCRSearch.Core.Entities;
-using MCRSearch.src.MCRSearch.Infrastructure.Repositories;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces;
 using MCRSearch.src.MCRSearch.Presentation.Dtos;
 using System.Net;
@@ -18,6 +17,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         {
             _vehicleRepository = vehicleRepository;
             _mapper = mapper;
+            _responseApi = new ResponseAPI<Vehicle>();
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Crea un vehiculo.
         /// </summary>
-        public ResponseAPI<Vehicle> CreateVehicle(VehicleDto vehicleDto)
+        public ResponseAPI<Vehicle> CreateVehicle(VehiclePostDto vehicleDto)
         {
             if (_vehicleRepository.GetVehicle(vehicleDto.VehicleModelId, vehicleDto.VehicleTypeId, vehicleDto.VehicleBrandId).Result != null)
             {
@@ -116,7 +116,12 @@ namespace MCRSearch.src.MCRSearch.Application.Services
                 return _responseApi;
             }
             var vehicle = _mapper.Map<Vehicle>(vehicleDto);
-            if (!_vehicleRepository.CreateVehicle(vehicle).Result)
+            var isCreated = false;
+            try
+            {
+                isCreated = !_vehicleRepository.CreateVehicle(vehicle).Result;
+            } catch (Exception ex) {}
+            if (!isCreated)
             {
                 _responseApi.StatusCode = HttpStatusCode.InternalServerError;
                 _responseApi.IsSuccess = false;
@@ -132,7 +137,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Actualiza el vehiculo.
         /// </summary>
-        public ResponseAPI<Vehicle> PatchVehicle(VehicleDto vehicleDto)
+        public ResponseAPI<Vehicle> PatchVehicle(VehiclePatchDto vehicleDto)
         {
             var vehicle = _mapper.Map<Vehicle>(vehicleDto);
             if (!_vehicleRepository.UpdateVehicle(vehicle).Result)

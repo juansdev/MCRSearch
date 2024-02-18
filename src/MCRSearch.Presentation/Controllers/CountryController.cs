@@ -79,7 +79,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult CreateVehicleModel([FromBody] CountryDto countryDto)
+        public IActionResult CreateVehicleModel([FromBody] CountryPostDto countryDto)
         {
             if (!ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PatchVehicleModel([FromBody] CountryDto countryDto)
+        public IActionResult PatchVehicleModel([FromBody] CountryPatchDto countryDto)
         {
             if (!ModelState.IsValid)
             {

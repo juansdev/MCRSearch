@@ -9,8 +9,8 @@ namespace MCRSearch.src.MCRSearch.Application.Services.Interfaces
         List<DepartmentDto> GetDepartments();
         DepartmentDto GetDepartment(int id);
         DepartmentDto GetDepartment(string name);
-        ResponseAPI<Department> CreateDepartment(DepartmentDto departmentDto);
-        ResponseAPI<Department> PatchDepartment(DepartmentDto departmentDto);
+        ResponseAPI<Department> CreateDepartment(DepartmentPostDto departmentDto);
+        ResponseAPI<Department> PatchDepartment(DepartmentPatchDto departmentDto);
         ResponseAPI<Department> DeleteDepartment(int departmentId);
     }
 }

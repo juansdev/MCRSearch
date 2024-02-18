@@ -2,7 +2,6 @@
 using MCRSearch.src.MCRSearch.Application.Dtos;
 using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
 using MCRSearch.src.MCRSearch.Core.Entities;
-using MCRSearch.src.MCRSearch.Infrastructure.Repositories;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces;
 using MCRSearch.src.MCRSearch.Presentation.Dtos;
 using System.Net;
@@ -56,7 +55,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Crea el departamento.
         /// </summary>
-        public ResponseAPI<Department> CreateDepartment(DepartmentDto departmentDto)
+        public ResponseAPI<Department> CreateDepartment(DepartmentPostDto departmentDto)
         {
             if (_departmentRepository.GetDepartment(departmentDto.Name).Result != null)
             {
@@ -82,7 +81,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Actualiza el departamento.
         /// </summary>
-        public ResponseAPI<Department> PatchDepartment(DepartmentDto departmentDto)
+        public ResponseAPI<Department> PatchDepartment(DepartmentPatchDto departmentDto)
         {
             var department = _mapper.Map<Department>(departmentDto);
             if (!_departmentRepository.UpdateDepartmentModel(department).Result)

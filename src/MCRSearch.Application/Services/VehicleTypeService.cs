@@ -55,7 +55,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Crea un tipo de vehiculo.
         /// </summary>
-        public ResponseAPI<VehicleType> CreateVehicleType(VehicleTypeDto vehicleTypeDto)
+        public ResponseAPI<VehicleType> CreateVehicleType(VehicleTypePostDto vehicleTypeDto)
         {
             if(_vehicleTypeRepository.GetVehicleType(vehicleTypeDto.Name).Result != null)
             {
@@ -81,7 +81,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Actualizar un tipo de vehiculo.
         /// </summary>
-        public ResponseAPI<VehicleType> PatchVehicleType(VehicleTypeDto vehicleTypeDto)
+        public ResponseAPI<VehicleType> PatchVehicleType(VehicleTypePatchDto vehicleTypeDto)
         {
             var vehicleType = _mapper.Map<VehicleType>(vehicleTypeDto);
             if(!_vehicleTypeRepository.UpdateVehicleType(vehicleType).Result) { 

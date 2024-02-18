@@ -1,7 +1,5 @@
 ﻿using MCRSearch.src.MCRSearch.Application.Dtos;
-using MCRSearch.src.MCRSearch.Application.Services;
 using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
-using MCRSearch.src.MCRSearch.Presentation.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -121,13 +119,13 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [Authorize(Roles = "admin")]
         [HttpPost]
-        [ProducesResponseType(201, Type = typeof(AvailableVehicleDto))]
+        [ProducesResponseType(201, Type = typeof(AvailableVehiclePostDto))]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult CreateVehicleModel([FromBody] AvailableVehicleDto availableVehicleDto)
+        public IActionResult CreateVehicleModel([FromBody] AvailableVehiclePostDto availableVehicleDto)
         {
             if (!ModelState.IsValid)
             {
@@ -155,7 +153,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PatchVehicleModel([FromBody] AvailableVehicleDto availableVehicleDto)
+        public IActionResult PatchVehicleModel([FromBody] AvailableVehiclePatchDto availableVehicleDto)
         {
             if (!ModelState.IsValid)
             {

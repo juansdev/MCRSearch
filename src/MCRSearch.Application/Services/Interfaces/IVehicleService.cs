@@ -13,8 +13,8 @@ namespace MCRSearch.src.MCRSearch.Application.Services.Interfaces
         List<VehicleDto> GetVehiclesInModel(int modelId);
         List<VehicleDto> GetVehiclesInType(int typeId);
         List<VehicleDto> GetVehiclesInBrand(int brandId);
-        ResponseAPI<Vehicle> CreateVehicle(VehicleDto vehicleDto);
-        ResponseAPI<Vehicle> PatchVehicle(VehicleDto vehicleDto);
+        ResponseAPI<Vehicle> CreateVehicle(VehiclePostDto vehicleDto);
+        ResponseAPI<Vehicle> PatchVehicle(VehiclePatchDto vehicleDto);
         ResponseAPI<Vehicle> DeleteVehicle(int vehicleId);
     }
 }
