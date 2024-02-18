@@ -66,6 +66,9 @@ artifacts/
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
 
+# Entity Framework Core
+Migrations/
+
 # StyleCop
 StyleCopReport.xml
 

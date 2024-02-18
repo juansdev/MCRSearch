@@ -65,13 +65,40 @@ Este proyecto implementa un Sistema de Búsqueda de Vehículos para Miles Car Rent
 
 1. Clona el repositorio desde [GitHub](https://github.com/juansdev/MCRSearch.git).
 2. Abre el proyecto en Visual Studio o tu IDE preferido.
-3. Actualiza la base de datos ejecutando los siguientes comandos en la Consola de Administrador de Paquetes (Package Manager Console):
+3. Actualiza la URL de conexión en el appsettings.json, del cual se explica en la siguiente sección.
+4. Actualiza la base de datos ejecutando los siguientes comandos en la Consola de Administrador de Paquetes (Package Manager Console):
    ```shell
    Update-Database
-   Add-Migration InitialCreate
+   Add-Migration InitialMigration
    Update-Database
    ```
-4. Ejecuta la aplicación.
+5. Ejecuta la aplicación.
+
+## Actualización de URL de Conexión en appsettings.json
+
+Para actualizar la URL de conexión en la llave "ConnectionSql" en el archivo appsettings.json, siga los pasos a continuación:
+
+1. Abra el archivo appsettings.json ubicado en la raíz del proyecto.
+
+2. Ubique la sección "ConnectionStrings" y encuentre la llave "ConnectionSql". La cadena de conexión tiene el siguiente formato:
+
+    ```json
+    "ConnectionStrings": {
+      "ConnectionSql": "server=localhost;port=3306;user=root;password=thor;database=mcr_search;"
+    },
+    ```
+
+3. Modifique la URL de conexión según sus necesidades. Asegúrese de proporcionar la información correcta para el servidor, puerto, nombre de usuario, contraseña y base de datos.
+
+   Por ejemplo, si desea cambiar el servidor a "nuevoservidor" y el puerto a "1234", la cadena de conexión se vería así:
+
+    ```json
+    "ConnectionStrings": {
+      "ConnectionSql": "server=nuevoservidor;port=1234;user=root;password=thor;database=mcr_search;"
+    },
+    ```
+
+4. Guarde los cambios en el archivo appsettings.json.
 
 ## Datos Prefabricados
 
@@ -90,6 +117,10 @@ Se incluyen datos prefabricados para facilitar la ejecución y pruebas de la apli
 - **1 Usuario Disponible**
   - Nombre de usuario: admin
   - Contraseña: Admin123*
+
+## Habilitación de CORS en la API
+
+La API ha configurado el Cross-Origin Resource Sharing (CORS) para permitir solicitudes desde "localhost:8080".
 
 ## Contacto
 
