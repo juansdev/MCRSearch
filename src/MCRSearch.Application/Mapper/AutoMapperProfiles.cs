@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using MCRSearch.src.MCRSearch.Application.Dtos;
 using MCRSearch.src.MCRSearch.Core.Entities;
-using MCRSearch.src.MCRSearch.Infrastructure.Dtos;
-using MCRSearch.src.MCRSearch.Presentation.Dtos;
-using MCRSearch.src.MCRSearch.Presentation.DTOs;
+using MCRSearch.src.SharedDtos;
 
 namespace MCRSearch.src.MCRSearch.Application.Mapper
 {
@@ -11,11 +9,9 @@ namespace MCRSearch.src.MCRSearch.Application.Mapper
     {
         public AutoMapperProfiles()
         {
-            CreateMap<AppUser, Infrastructure.Dtos.AppUserLoginDataDto>().ReverseMap();
-            CreateMap<AppUser, Dtos.AppUserDto>().ReverseMap();
+            CreateMap<AppUser, AppUserLoginDataDto>().ReverseMap();
+            CreateMap<AppUser, AppUserDto>().ReverseMap();
             CreateMap<AvailableVehicle, AvailableVehicleDto>().ReverseMap();
-            CreateMap<AvailableVehicle, AvailableVehicleWithCityDto>().ReverseMap();
-            CreateMap<AvailableVehicle, AvailableVehicleWithVehicleDto>().ReverseMap();
 
             CreateMap<Country, CountryDto>().ReverseMap();
             CreateMap<Country, CountryPostDto>().ReverseMap();

@@ -51,14 +51,13 @@ Este proyecto implementa un Sistema de Búsqueda de Vehículos para Miles Car Rent
       - **MCRSearch.Core**: Capa de lógica de negocio
         - **Entities**: Entidades de la aplicación.
       - **MCRSearch.Infrastructure**: Capa de infraestructura
-        - **Dtos**: Data Transfer Objects utilizados en la capa de infraestructura.
         - **Filters**: Filtros de acción utilizados en la API.
         - **Middleware**: Middlewares utilizados para interceptar las peticiones y respuestas.
         - **Repositories**: Repositorios siguiendo el patrón de diseño repository.
         - **ApplicationDbContext.cs**: Configuración del IdentityDbContext y seeders.
       - **MCRSearch.Presentation**: Capa de presentación (API)
         - **Controllers**: Controladores de la API.
-        - **DTOs**: Data Transfer Objects utilizados en la capa de presentación.
+    - **SharedDtos**: Almacena los Data Transfer Objects compartidos entre diversas capas.
     - **Program.cs**: Configuración y arranque del proyecto.
     - **Startup.cs**: Configuración de servicios y configuración general.
 
@@ -81,9 +80,7 @@ Se incluyen datos prefabricados para facilitar la ejecución y pruebas de la apli
 - **20 Vehículos Disponibles en Total**
   - **Colombia**:
     - 2 Vehículos disponibles en Bogotá - Tunja.
-    - 1 Vehículo disponible
-
- en Tunja - Bogotá.
+    - 1 Vehículo disponible en Tunja - Bogotá.
     - 3 Vehículos disponibles en Tunja - Tunja.
     - 5 Vehículos disponibles en Bogotá - Bogotá.
   - **Brasil**:

@@ -1,6 +1,4 @@
-﻿using MCRSearch.src.MCRSearch.Application.Dtos;
-using MCRSearch.src.MCRSearch.Infrastructure.Dtos;
-using MCRSearch.src.MCRSearch.Presentation.DTOs;
+﻿using MCRSearch.src.SharedDtos;
 
 namespace MCRSearch.src.MCRSearch.Application.Services.Interfaces
 {

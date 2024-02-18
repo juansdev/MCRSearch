@@ -1,6 +1,5 @@
-﻿using MCRSearch.src.MCRSearch.Application.Services;
-using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
-using MCRSearch.src.MCRSearch.Presentation.Dtos;
+﻿using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
+using MCRSearch.src.SharedDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,9 +19,9 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<VehicleDto>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetVehicles()
         {
             var listVehicles = _vehicleService.GetVehicles();
@@ -38,9 +37,9 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet("{id:int}", Name = "GetVehicle")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(VehicleDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetVehicle(int id)
         {
             var vehicle = _vehicleService.GetVehicle(id);
@@ -56,9 +55,9 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet("{modelName}/{typeName}/{brandName}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(VehicleDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetVehicle(string modelName, string typeName, string brandName)
         {
             var vehicle = _vehicleService.GetVehicle(modelName, typeName, brandName);
@@ -74,9 +73,12 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet("{modelId:int}/{typeId:int}/{brandId:int}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(201, Type = typeof(VehicleDto))]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetVehicle(int modelId, int typeId, int brandId)
         {
             var vehicle = _vehicleService.GetVehicle(modelId, typeId, brandId);
@@ -92,9 +94,10 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet("model/{modelId:int}")]
+        [ProducesResponseType(200, Type = typeof(List<VehicleDto>))]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetVehiclesInModel(int modelId)
         {
             var listVehicles = _vehicleService.GetVehiclesInModel(modelId);
@@ -110,9 +113,10 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet("type/{typeId:int}")]
+        [ProducesResponseType(200, Type = typeof(List<VehicleDto>))]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetVehiclesInType(int typeId)
         {
             var listVehicles = _vehicleService.GetVehiclesInType(typeId);
@@ -128,9 +132,10 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet("brand/{brandId:int}")]
+        [ProducesResponseType(200, Type = typeof(List<VehicleDto>))]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetVehiclesInBrand(int brandId)
         {
             var listVehicles = _vehicleService.GetVehiclesInBrand(brandId);
@@ -146,11 +151,10 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [Authorize(Roles = "admin")]
         [HttpPost]
-        [ProducesResponseType(201, Type = typeof(VehicleDto))]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult CreateVehicle([FromBody] VehiclePostDto vehicleDto)
         {
@@ -175,10 +179,11 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// Actualiza el vehiculo.
         /// </summary>
         [Authorize(Roles = "admin")]
-        [HttpPatch()]
-        [ProducesResponseType(204)]
+        [HttpPatch]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult PatchVehicle([FromBody] VehiclePatchDto vehicleDto)
         {
@@ -199,11 +204,12 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [Authorize(Roles = "admin")]
         [HttpDelete("{id:int}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult DeleteVehicleModel(int id)
         {
             if (_vehicleService.GetVehicle(id) == null)

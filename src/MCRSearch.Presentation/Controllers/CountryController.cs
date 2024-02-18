@@ -1,5 +1,5 @@
 ﻿using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
-using MCRSearch.src.MCRSearch.Presentation.Dtos;
+using MCRSearch.src.SharedDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,9 +19,9 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<CountryDto>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetCountries()
         {
             var listCountries = _countryService.GetCountries();
@@ -37,9 +37,9 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet("{id:int}", Name = "GetCountry")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CountryDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetCountry(int id)
         {
             var country = _countryService.GetCountry(id);
@@ -55,9 +55,9 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet("{name}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CountryDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetCountry(string name)
         {
             var country = _countryService.GetCountry(name);
@@ -73,11 +73,11 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [Authorize(Roles = "admin")]
         [HttpPost]
-        [ProducesResponseType(201, Type = typeof(CountryDto))]
+        [ProducesResponseType(201, Type = typeof(VehicleModelDto))]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult CreateVehicleModel([FromBody] CountryPostDto countryDto)
         {
@@ -102,10 +102,11 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// Actualiza el pais.
         /// </summary>
         [Authorize(Roles = "admin")]
-        [HttpPatch()]
-        [ProducesResponseType(204)]
+        [HttpPatch]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult PatchVehicleModel([FromBody] CountryPatchDto countryDto)
         {
@@ -126,11 +127,12 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [Authorize(Roles = "admin")]
         [HttpDelete("{id:int}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult DeleteVehicleModel(int id)
         {
             if (_countryService.GetCountry(id) == null)

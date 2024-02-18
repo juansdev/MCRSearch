@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using MCRSearch.src.MCRSearch.Application.Dtos;
 using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
 using MCRSearch.src.MCRSearch.Core.Entities;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces;
-using MCRSearch.src.MCRSearch.Presentation.Dtos;
+using MCRSearch.src.SharedDtos;
 using System.Net;
 
 namespace MCRSearch.src.MCRSearch.Application.Services

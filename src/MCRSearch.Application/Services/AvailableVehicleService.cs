@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using MCRSearch.src.MCRSearch.Application.Dtos;
 using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
 using MCRSearch.src.MCRSearch.Core.Entities;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces;
-using MCRSearch.src.MCRSearch.Presentation.DTOs;
+using MCRSearch.src.SharedDtos;
 using System.Net;
 
 namespace MCRSearch.src.MCRSearch.Application.Services
@@ -22,13 +21,13 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Obtiene los vehiculos disponibles por ciudad de recogida y de retorno por nombre.
         /// </summary>
-        public List<AvailableVehicleWithVehicleDto> GetAvailableVehicles(string pickUpCityName, string returnCityName)
+        public List<AvailableVehicleDto> GetAvailableVehicles(string pickUpCityName, string returnCityName)
         {
             var listAvailableVehicleRepository = _availableVehicleRepository.GetAvailableVehicles(pickUpCityName, returnCityName).Result;
-            var listAvailableVehicleRepositoryDto = new List<AvailableVehicleWithVehicleDto>();
+            var listAvailableVehicleRepositoryDto = new List<AvailableVehicleDto>();
             foreach (var availableVehicle in listAvailableVehicleRepository)
             {
-                listAvailableVehicleRepositoryDto.Add(_mapper.Map<AvailableVehicleWithVehicleDto>(availableVehicle));
+                listAvailableVehicleRepositoryDto.Add(_mapper.Map<AvailableVehicleDto>(availableVehicle));
             }
             return listAvailableVehicleRepositoryDto;
         }
@@ -36,13 +35,13 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Obtiene los vehiculos disponibles por ciudad de recogida y de retorno por ID.
         /// </summary>
-        public List<AvailableVehicleWithVehicleDto> GetAvailableVehicles(int pickUpCityId, int returnCityId)
+        public List<AvailableVehicleDto> GetAvailableVehicles(int pickUpCityId, int returnCityId)
         {
             var listAvailableVehicleRepository = _availableVehicleRepository.GetAvailableVehicles(pickUpCityId, returnCityId).Result;
-            var listAvailableVehicleRepositoryDto = new List<AvailableVehicleWithVehicleDto>();
+            var listAvailableVehicleRepositoryDto = new List<AvailableVehicleDto>();
             foreach(var availableVehicle in listAvailableVehicleRepository)
             {
-                listAvailableVehicleRepositoryDto.Add(_mapper.Map<AvailableVehicleWithVehicleDto>(availableVehicle));
+                listAvailableVehicleRepositoryDto.Add(_mapper.Map<AvailableVehicleDto>(availableVehicle));
             }
             return listAvailableVehicleRepositoryDto;
         }
@@ -59,13 +58,13 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Obtiene los vehiculos disponibles por clase de vehiculo.
         /// </summary>
-        public List<AvailableVehicleWithVehicleDto> GetAvailableVehiclesInVehicle(int vehicleId)
+        public List<AvailableVehicleDto> GetAvailableVehiclesInVehicle(int vehicleId)
         {
             var listAvailableVehicleRepository = _availableVehicleRepository.GetAvailableVehiclesInVehicle(vehicleId).Result;
-            var listAvailableVehicleRepositoryDto = new List<AvailableVehicleWithVehicleDto>();
+            var listAvailableVehicleRepositoryDto = new List<AvailableVehicleDto>();
             foreach (var availableVehicle in listAvailableVehicleRepository)
             {
-                listAvailableVehicleRepositoryDto.Add(_mapper.Map<AvailableVehicleWithVehicleDto>(availableVehicle));
+                listAvailableVehicleRepositoryDto.Add(_mapper.Map<AvailableVehicleDto>(availableVehicle));
             }
             return listAvailableVehicleRepositoryDto;
         }
@@ -74,13 +73,13 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Obtiene los vehiculos disponibles por Ciudad.
         /// </summary>
-        public List<AvailableVehicleWithCityDto> GetAvailableVehiclesInCity(int cityId)
+        public List<AvailableVehicleDto> GetAvailableVehiclesInCity(int cityId)
         {
             var listAvailableVehicleRepository = _availableVehicleRepository.GetAvailableVehiclesInVehicle(cityId).Result;
-            var listAvailableVehicleRepositoryDto = new List<AvailableVehicleWithCityDto>();
+            var listAvailableVehicleRepositoryDto = new List<AvailableVehicleDto>();
             foreach (var availableVehicle in listAvailableVehicleRepository)
             {
-                listAvailableVehicleRepositoryDto.Add(_mapper.Map<AvailableVehicleWithCityDto>(availableVehicle));
+                listAvailableVehicleRepositoryDto.Add(_mapper.Map<AvailableVehicleDto>(availableVehicle));
             }
             return listAvailableVehicleRepositoryDto;
         }

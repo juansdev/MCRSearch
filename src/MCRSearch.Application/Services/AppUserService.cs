@@ -1,15 +1,13 @@
 ﻿using AutoMapper;
 using MCRSearch.src.MCRSearch.Application.Dtos;
 using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
-using MCRSearch.src.MCRSearch.Infrastructure.Dtos;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces;
-using MCRSearch.src.MCRSearch.Presentation.DTOs;
+using MCRSearch.src.SharedDtos;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
-using XAct;
 
 namespace MCRSearch.src.MCRSearch.Application.Services
 {
@@ -31,13 +29,13 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Obtiene todos los usuarios.
         /// </summary>
-        public List<Dtos.AppUserDto> GetUsers()
+        public List<AppUserDto> GetUsers()
         {
             var listUsers = _appUserRepository.GetUsers().Result;
-            var listUsersDto = new List<Dtos.AppUserDto>();
+            var listUsersDto = new List<AppUserDto>();
             foreach (var list in listUsers)
             {
-                listUsersDto.Add(_mapper.Map<Dtos.AppUserDto>(list));
+                listUsersDto.Add(_mapper.Map<AppUserDto>(list));
             }
             return listUsersDto;
         }
@@ -45,10 +43,10 @@ namespace MCRSearch.src.MCRSearch.Application.Services
         /// <summary>
         /// Obtiene el usuario por ID.
         /// </summary>
-        public Dtos.AppUserDto GetUser(string userId)
+        public AppUserDto GetUser(string userId)
         {
             var itemUser = _appUserRepository.GetUser(userId).Result;
-            return _mapper.Map<Dtos.AppUserDto>(itemUser);
+            return _mapper.Map<AppUserDto>(itemUser);
         }
 
         /// <summary>
@@ -122,7 +120,7 @@ namespace MCRSearch.src.MCRSearch.Application.Services
             AppUserLoginResponseDto loginUserResponseDto = new AppUserLoginResponseDto()
             {
                 Token = handlerToken.WriteToken(token),
-                User = _mapper.Map<Infrastructure.Dtos.AppUserLoginDataDto>(user)
+                User = _mapper.Map<AppUserLoginDataDto>(user)
             };
             _responseApi.StatusCode = HttpStatusCode.OK;
             _responseApi.IsSuccess = true;

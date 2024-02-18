@@ -1,6 +1,5 @@
 ﻿using MCRSearch.src.MCRSearch.Core.Entities;
-using MCRSearch.src.MCRSearch.Infrastructure.Dtos;
-using MCRSearch.src.MCRSearch.Presentation.DTOs;
+using MCRSearch.src.SharedDtos;
 using Microsoft.AspNetCore.Identity;
 
 namespace MCRSearch.src.MCRSearch.Infrastructure.Repositories.Interfaces

@@ -1,6 +1,5 @@
-﻿using MCRSearch.src.MCRSearch.Application.Services;
-using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
-using MCRSearch.src.MCRSearch.Presentation.Dtos;
+﻿using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
+using MCRSearch.src.SharedDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,9 +19,9 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(DepartmentDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetDepartments()
         {
             var listDepartments = _departmentService.GetDepartments();
@@ -38,9 +37,9 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet("{id:int}", Name = "GetDepartment")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(DepartmentDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetDepartment(int id)
         {
             var department = _departmentService.GetDepartment(id);
@@ -56,9 +55,9 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpGet("{name}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(DepartmentDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetDepartment(string name)
         {
             var department = _departmentService.GetDepartment(name);
@@ -78,7 +77,7 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult CreateDepartment([FromBody] DepartmentPostDto departmentDto)
         {
@@ -103,10 +102,11 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// Actualiza el departamento.
         /// </summary>
         [Authorize(Roles = "admin")]
-        [HttpPatch()]
-        [ProducesResponseType(204)]
+        [HttpPatch]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult PatchDepartment([FromBody] DepartmentPatchDto departmentDto)
         {
@@ -127,11 +127,12 @@ namespace MCRSearch.src.MCRSearch.Presentation.Controllers
         /// </summary>
         [Authorize(Roles = "admin")]
         [HttpDelete("{id:int}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult DeleteDepartment(int id)
         {
             if (_departmentService.GetDepartment(id) == null)

@@ -1,5 +1,5 @@
 ﻿using MCRSearch.src.MCRSearch.Application.Services.Interfaces;
-using MCRSearch.src.MCRSearch.Presentation.DTOs;
+using MCRSearch.src.SharedDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,9 +21,10 @@ namespace ApiMovies.Controllers
         /// </summary>
         [Authorize(Roles = "admin")]
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AppUserDto))]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetUsers()
         {
             var listUsers = _userService.GetUsers();
@@ -35,11 +36,11 @@ namespace ApiMovies.Controllers
         /// </summary>
         [Authorize(Roles = "admin")]
         [HttpGet("{id:int}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AppUserDto))]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetUser(string id)
         {
             var itemUser = _userService.GetUser(id);
@@ -55,8 +56,8 @@ namespace ApiMovies.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpPost("register")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ResponseAPI<AppUserLoginResponseDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ResponseAPI<AppUserLoginResponseDto>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult Register([FromBody] AppUserRegisterDto registerUserDto)
         {
@@ -73,8 +74,8 @@ namespace ApiMovies.Controllers
         /// </summary>
         [AllowAnonymous]
         [HttpPost("login")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ResponseAPI<AppUserLoginResponseDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ResponseAPI<AppUserLoginResponseDto>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult Login([FromBody] AppUserLoginDto loginUserDto)
         {
