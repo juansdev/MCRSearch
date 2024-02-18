@@ -2,10 +2,10 @@
 using MCRSearch.src.MCRSearch.Application.Services;
 using MCRSearch.src.MCRSearch.Infrastructure.Repositories;
 using MCRSearch.src.MCRSearch.Core.Entities;
-using MCRSearch.Tests.UnitTests.Helper;
 using MCRSearch.src.MCRSearch.Presentation.Controllers;
 using MCRSearch.src.SharedDtos;
 using Microsoft.AspNetCore.Mvc;
+using MCRSearch.Tests.Helper;
 
 namespace MCRSearch.Tests.UnitTests
 {

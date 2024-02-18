@@ -7,6 +7,7 @@ Este proyecto implementa un Sistema de Búsqueda de Vehículos para Miles Car Rent
 ## Requerimientos Técnicos
 
 - **Versión de .NET**: .NET 7
+- **Versión de Visual Studio**: VS 2022 v17.8.2
 - **Dependencias Principales**:
   - AutoMapper 13.0.1
   - Microsoft.AspNetCore.Authentication.JwtBearer v7.0.16
@@ -60,11 +61,16 @@ Este proyecto implementa un Sistema de Búsqueda de Vehículos para Miles Car Rent
     - **SharedDtos**: Almacena los Data Transfer Objects compartidos entre diversas capas.
     - **Program.cs**: Configuración y arranque del proyecto.
     - **Startup.cs**: Configuración de servicios y configuración general.
+  - **MCRSearch.Tests (Proyecto)**
+    - **Commons**: Clases comunes utilizadas en diveros tipos de pruebas.
+    - **IntegrationTests**: Pruebas de integración.
+    - **UnitTests**: Pruebas unitarias.
+    - **Helpers**: Clases de ayuda para las pruebas.
 
 ## Instrucciones de Ejecución
 
 1. Clona el repositorio desde [GitHub](https://github.com/juansdev/MCRSearch.git).
-2. Abre el proyecto en Visual Studio o tu IDE preferido.
+2. Abre el proyecto en Visual Studio o tu IDE preferido ejecutando el archivo ubicado en "Project_MCRSearch/MCRSearch/MCRSearch.sln".
 3. Actualiza la URL de conexión en el appsettings.json, del cual se explica en la siguiente sección.
 4. Actualiza la base de datos ejecutando los siguientes comandos en la Consola de Administrador de Paquetes (Package Manager Console):
    ```shell
@@ -73,6 +79,17 @@ Este proyecto implementa un Sistema de Búsqueda de Vehículos para Miles Car Rent
    Update-Database
    ```
 5. Ejecuta la aplicación.
+
+## Instrucción de Ejecución de Pruebas Unitarias y de Integración
+
+Para ejecutar las pruebas unitarias e integración en el proyecto, sigue los siguientes pasos:
+
+1. Abre el proyecto en Visual Studio o tu IDE preferido ejecutando el archivo ubicado en "Project_MCRSearch/MCRSearch/MCRSearch.sln".
+2. En el Explorador de Soluciones, expande el proyecto `MCRSearch.Tests`.
+3. Verás dos carpetas principales: `UnitTests` y `IntegrationTests`. Cada una contiene las pruebas unitarias e integración respectivamente.
+4. Para ejecutar todas las pruebas, ve a la barra de menú y selecciona `Pruebas > Ejecutar > Todas las pruebas`. Esto ejecutará todas las pruebas unitarias e integración en el proyecto.
+5. Para ejecutar pruebas específicas, puedes hacer clic derecho en una prueba o un conjunto de pruebas y seleccionar `Ejecutar Pruebas`.
+6. Después de ejecutar las pruebas, los resultados se mostrarán en la ventana de `Resultados de Pruebas`.
 
 ## Actualización de URL de Conexión en appsettings.json
 

@@ -1,6 +1,6 @@
 ﻿using MCRSearch.src.SharedDtos;
 
-namespace MCRSearch.Tests.UnitTests.Helper
+namespace MCRSearch.Tests.Helper
 {
     public class UtilHelper
     {

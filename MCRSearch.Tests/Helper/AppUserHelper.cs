@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using MCRSearch.Tests.UnitTests;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Moq;
 using System.Text;
 
-namespace MCRSearch.Tests.UnitTests.Helper
+namespace MCRSearch.Tests.Helper
 {
-    public class AppUserHelper: AppUserControllerTests
+    public class AppUserHelper : AppUserControllerTests
     {
         // Source: https://github.com/dotnet/aspnetcore/blob/master/src/Identity/test/Shared/MockHelpers.cs
         // Source: https://github.com/dotnet/aspnetcore/blob/master/src/Identity/test/Identity.Test/SignInManagerTest.cs
