@@ -1,6 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MCRSearch.src.MCRSearch.Core.Entities;
-using MCRSearch.Tests.UnitTests.Helper;
 using MCRSearch.src.SharedDtos;
 using Microsoft.AspNetCore.Mvc;
 using MCRSearch.Tests.Commons;
