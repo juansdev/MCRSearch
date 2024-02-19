@@ -52,9 +52,7 @@
 - **PATCH -> /api/vehicle**: Actualiza un vehículo. (EndPoint protegido, solo usuarios con el rol "admin" pueden acceder).
 - **GET -> /api/vehicle/{id}**: Obtiene un vehículo por ID.
 - **DELETE -> /api/vehicle/{id}**: Elimina un vehículo por ID. (EndPoint protegido, solo usuarios con el rol "admin" pueden acceder).
-- **GET -> /api/vehicle/{modelName}/{typeName}/{brandName}**: Obtiene un vehículo por el nombre del modelo, nombre del tipo y el nombre de la
-
- marca. 
+- **GET -> /api/vehicle/{modelName}/{typeName}/{brandName}**: Obtiene un vehículo por el nombre del modelo, nombre del tipo y el nombre de la marca. 
 - **GET -> /api/vehicle/{modelId}/{typeId}/{brandId}**: Obtiene un vehículo por el modelo, tipo y marca por sus IDs.
 - **GET -> /api/vehicle/model/{modelId}**: Obtiene todos los vehículos por el modelo según ID.
 - **GET -> /api/vehicle/type/{typeId}**: Obtiene todos los vehículos por el tipo según ID.

@@ -37,6 +37,9 @@ Este proyecto implementa un Sistema de Búsqueda de Vehículos para Miles Car Rent
 - **Servicios y Repositorios**: Uso de servicios y repositorios para una organización lógica y eficiente del código.
 - **Logging**: Registro de errores y respuestas de las peticiones para un seguimiento detallado.
 - **Swagger**: Integración de Swagger para documentar y probar la API de manera interactiva.
+- **Pruebas Unitarias e Integración**: Implementación de pruebas unitarias e integración para garantizar la calidad del código.
+- **CORS**: Configuración de CORS para permitir solicitudes desde "localhost:8080".
+- **Datos Prefabricados**: Inclusión de datos prefabricados para facilitar la ejecución y pruebas de la aplicación.
 
 ## Estructura del Proyecto
 
@@ -70,7 +73,7 @@ Este proyecto implementa un Sistema de Búsqueda de Vehículos para Miles Car Rent
 ## Instrucciones de Ejecución
 
 1. Clona el repositorio desde [GitHub](https://github.com/juansdev/MCRSearch.git).
-2. Abre el proyecto en Visual Studio o tu IDE preferido ejecutando el archivo ubicado en "Project_MCRSearch/MCRSearch/MCRSearch.sln".
+2. Abre el proyecto en Visual Studio o tu IDE preferido ejecutando el archivo ubicado en "MCRSearch/MCRSearch/MCRSearch.sln".
 3. Actualiza la URL de conexión en el appsettings.json, del cual se explica en la siguiente sección.
 4. Actualiza la base de datos ejecutando los siguientes comandos en la Consola de Administrador de Paquetes (Package Manager Console):
    ```shell
@@ -80,23 +83,11 @@ Este proyecto implementa un Sistema de Búsqueda de Vehículos para Miles Car Rent
    ```
 5. Ejecuta la aplicación.
 
-## Instrucción de Ejecución de Pruebas Unitarias y de Integración
-
-Para ejecutar las pruebas unitarias e integración en el proyecto, sigue los siguientes pasos:
-
-1. Abre el proyecto en Visual Studio o tu IDE preferido ejecutando el archivo ubicado en "Project_MCRSearch/MCRSearch/MCRSearch.sln".
-2. En el Explorador de Soluciones, expande el proyecto `MCRSearch.Tests`.
-3. Verás dos carpetas principales: `UnitTests` y `IntegrationTests`. Cada una contiene las pruebas unitarias e integración respectivamente.
-4. Para ejecutar todas las pruebas, ve a la barra de menú y selecciona `Pruebas > Ejecutar > Todas las pruebas`. Esto ejecutará todas las pruebas unitarias e integración en el proyecto.
-5. Para ejecutar pruebas específicas, puedes hacer clic derecho en una prueba o un conjunto de pruebas y seleccionar `Ejecutar Pruebas`.
-6. Después de ejecutar las pruebas, los resultados se mostrarán en la ventana de `Resultados de Pruebas`.
-
 ## Actualización de URL de Conexión en appsettings.json
 
 Para actualizar la URL de conexión en la llave "ConnectionSql" en el archivo appsettings.json, siga los pasos a continuación:
 
-1. Abra el archivo appsettings.json ubicado en la raíz del proyecto.
-
+1. En el Explorador de Soluciones, expande el proyecto `MCRSearch`, accede al archivo appsettings.json.
 2. Ubique la sección "ConnectionStrings" y encuentre la llave "ConnectionSql". La cadena de conexión tiene el siguiente formato:
 
     ```json
@@ -104,18 +95,25 @@ Para actualizar la URL de conexión en la llave "ConnectionSql" en el archivo app
       "ConnectionSql": "server=localhost;port=3306;user=root;password=thor;database=mcr_search;"
     },
     ```
-
 3. Modifique la URL de conexión según sus necesidades. Asegúrese de proporcionar la información correcta para el servidor, puerto, nombre de usuario, contraseña y base de datos.
-
    Por ejemplo, si desea cambiar el servidor a "nuevoservidor" y el puerto a "1234", la cadena de conexión se vería así:
-
     ```json
     "ConnectionStrings": {
       "ConnectionSql": "server=nuevoservidor;port=1234;user=root;password=thor;database=mcr_search;"
     },
     ```
-
 4. Guarde los cambios en el archivo appsettings.json.
+
+## Instrucción de Ejecución de Pruebas Unitarias y de Integración
+
+Para ejecutar las pruebas unitarias e integración en el proyecto, sigue los siguientes pasos:
+
+1. Abre el proyecto en Visual Studio o tu IDE preferido ejecutando el archivo ubicado en "MCRSearch/MCRSearch/MCRSearch.sln".
+2. En el Explorador de Soluciones, expande el proyecto `MCRSearch.Tests`.
+3. Verás dos carpetas principales: `UnitTests` y `IntegrationTests`. Cada una contiene las pruebas unitarias e integración respectivamente.
+4. Para ejecutar todas las pruebas, ve a la barra de menú y selecciona `Prueba > Ejecutar todas las pruebas`. Esto ejecutará todas las pruebas unitarias e integración en el proyecto.
+5. Para ejecutar pruebas específicas, puedes hacer clic derecho en una prueba o un conjunto de pruebas y seleccionar `Ejecutar Pruebas`.
+6. Después de ejecutar las pruebas, los resultados se mostrarán en la ventana de `Resultados de Pruebas`.
 
 ## Datos Prefabricados
 
@@ -123,17 +121,27 @@ Se incluyen datos prefabricados para facilitar la ejecución y pruebas de la apli
 
 - **20 Vehículos Disponibles en Total**
   - **Colombia**:
-    - 2 Vehículos disponibles en Bogotá - Tunja.
-    - 1 Vehículo disponible en Tunja - Bogotá.
+    - 2 Vehículos disponibles en Bogotá D.C. (Ciudad de Recogida) - Tunja (Ciudad de Retorno).
+    - 1 Vehículo disponible en Tunja - Bogotá D.C..
     - 3 Vehículos disponibles en Tunja - Tunja.
-    - 5 Vehículos disponibles en Bogotá - Bogotá.
+    - 5 Vehículos disponibles en Bogotá D.C. - Bogotá D.C..
   - **Brasil**:
     - 1 Vehículo disponible en Goiânia - Goiânia.
     - 4 Vehículos disponibles en Goiânia - Brasilia.
     - 4 Vehículos disponibles en Brasilia - Brasilia.
+- **2 Departamentos Disponibles en Total**
+  - **Colombia**:
+	- Cundinamarca.
+  - **Brasil**:
+	- Goiás
+- **20 Marcas de Vehiculos en Total**
+- **20 Modelos de Vehiculos en Total**
+- **4 Tipos de Vehiculos en Total**
+- **20 Vehiculos en Total**
 - **1 Usuario Disponible**
   - Nombre de usuario: admin
   - Contraseña: Admin123*
+  - Rol: admin
 
 ## Habilitación de CORS en la API
 

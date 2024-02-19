@@ -70,7 +70,7 @@ namespace MCRSearch.src.MCRSearch.Infrastructure
             // Seed Countries
             modelBuilder.Entity<Country>().HasData(
                 new Country { Id = 1, Name = "Colombia" },
-                new Country { Id = 2, Name = "Brazil" }
+                new Country { Id = 2, Name = "Brasil" }
             );
 
             // Seed Departments
